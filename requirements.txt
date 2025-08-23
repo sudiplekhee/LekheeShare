@@ -1,1 +1,3 @@
-echo "flask\ngunicorn\nwerkzeug" > requirements.txt
+flask
+gunicorn
+werkzeug
