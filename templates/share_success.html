@@ -1,0 +1,142 @@
+<!-- templates/share_success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Created - LekheeShare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f7fb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .success-icon {
+            font-size: 4rem;
+            color: #4caf50;
+        }
+        .share-url, .share-code {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+        .btn-copy {
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        .share-code {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #6c5ce7;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #6c5ce7;
+        }
+        .code-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        .share-section {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body p-5 text-center">
+                        <div class="success-icon mb-4">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2 class="card-title mb-3">Share Created Successfully!</h2>
+                        <p class="text-muted mb-4">
+                            {% if file_type == 'text' %}
+                                Your text has been shared. The link will expire in 7 days.
+                            {% elif file_type == 'image' %}
+                                Your image has been shared. The link will expire in 7 days.
+                            {% else %}
+                                Your file has been shared. The link will expire in 7 days.
+                            {% endif %}
+                        </p>
+                        
+                        <!-- Share Code Section -->
+                        <div class="share-section">
+                            <div class="code-label">SHARE CODE</div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-lg share-code" id="shareCode" value="{{ share_code }}" readonly>
+                                <button class="btn btn-primary btn-copy" type="button" id="copyCodeButton">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <small class="text-muted">Share this code with others to let them access your file</small>
+                        </div>
+                        
+                        <!-- Share URL Section -->
+                        <div class="share-section">
+                            <div class="code-label">SHARE URL</div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-lg share-url" id="shareUrl" value="{{ share_url }}" readonly>
+                                <button class="btn btn-primary btn-copy" type="button" id="copyUrlButton">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <small class="text-muted">Or share this direct link</small>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                            <a href="{{ share_url }}" target="_blank" class="btn btn-primary btn-lg px-4">
+                                <i class="fas fa-external-link-alt me-2"></i>View Share
+                            </a>
+                            <a href="/" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="fas fa-plus me-2"></i>New Share
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Copy share code functionality
+        document.getElementById('copyCodeButton').addEventListener('click', function() {
+            const shareCode = document.getElementById('shareCode');
+            shareCode.select();
+            shareCode.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            
+            const originalHTML = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check me-2"></i>Copied!';
+            
+            setTimeout(() => {
+                this.innerHTML = originalHTML;
+            }, 2000);
+        });
+        
+        // Copy share URL functionality
+        document.getElementById('copyUrlButton').addEventListener('click', function() {
+            const shareUrl = document.getElementById('shareUrl');
+            shareUrl.select();
+            shareUrl.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            
+            const originalHTML = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check me-2"></i>Copied!';
+            
+            setTimeout(() => {
+                this.innerHTML = originalHTML;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
