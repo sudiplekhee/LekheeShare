@@ -255,69 +255,43 @@
             margin-bottom: 20px;
         }
         
-        .footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-        }
-        
-        .share-options {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        
-        .share-option {
-            background: white;
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
             border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            flex: 1;
-            max-width: 200px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            background: var(--success);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateX(100vw);
+            transition: transform 0.3s ease;
+            z-index: 1000;
         }
         
-        .share-option i {
-            font-size: 36px;
-            color: var(--primary);
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .access-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .access-section h3 {
+            color: var(--dark);
             margin-bottom: 15px;
         }
         
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .feature-grid {
-                flex-direction: column;
-            }
-            
-            .card {
-                max-width: 100%;
-            }
-            
-            .upload-area {
-                padding: 20px;
-            }
+        .access-section p {
+            color: #636e72;
+            margin-bottom: 20px;
         }
-        
+
         /* Tabs for different sharing options */
         .tabs {
             display: flex;
@@ -349,7 +323,6 @@
             display: block;
         }
         
-        /* Form elements */
         textarea, input[type="text"] {
             width: 100%;
             padding: 15px;
@@ -369,45 +342,40 @@
             min-height: 200px;
             resize: vertical;
         }
-        
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 12px;
-            background: var(--success);
-            color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transform: translateX(100vw);
-            transition: transform 0.3s ease;
-            z-index: 1000;
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .feature-grid {
+                flex-direction: column;
+            }
+            
+            .card {
+                max-width: 100%;
+            }
+            
+            .upload-area {
+                padding: 20px;
+            }
         }
+
         
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        /* Access file section */
-        .access-section {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            margin: 30px 0;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        .access-section h3 {
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-        
-        .access-section p {
-            color: #636e72;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body>
@@ -523,45 +491,22 @@
         </div>
     </div>
 
-    <div class="footer">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-share-alt"></i>
-                <h1>LekheeShare</h1>
-            </div>
-            <p>© 2023 LekheeShare. All rights reserved.</p>
-            <p>Simple, fast, and secure file sharing</p>
-        </div>
-    </div>
 
-    <div class="notification" id="notification">
-        Your link has been copied to clipboard!
-    </div>
+
 
     <script>
         // Tab functionality
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs
-                document.querySelectorAll('.tab').forEach(t => {
-                    t.classList.remove('active');
-                });
-                
-                // Add active class to clicked tab
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-                
-                // Hide all tab content
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                
-                // Show the corresponding tab content
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
                 const tabId = tab.getAttribute('data-tab');
                 document.getElementById(`${tabId}-tab`).classList.add('active');
             });
         });
         
-        // File upload functionality
+        // File upload
         document.getElementById('file-upload').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
@@ -570,7 +515,7 @@
             }
         });
         
-        // Image upload functionality
+        // Image upload
         document.getElementById('image-upload').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
@@ -579,11 +524,10 @@
             }
         });
         
-        // Drag and drop functionality
+        // Drag & drop
         const uploadAreas = document.querySelectorAll('.upload-area');
-        
         uploadAreas.forEach(area => {
-            area.addEventListener('dragover', (e) => {
+            area.addEventListener('dragover', e => {
                 e.preventDefault();
                 area.style.background = 'rgba(162, 155, 254, 0.2)';
                 area.style.borderColor = 'var(--primary)';
@@ -594,18 +538,15 @@
                 area.style.borderColor = 'var(--secondary)';
             });
             
-            area.addEventListener('drop', (e) => {
+            area.addEventListener('drop', e => {
                 e.preventDefault();
                 area.style.background = 'rgba(162, 155, 254, 0.05)';
                 area.style.borderColor = 'var(--secondary)';
-                
                 const files = e.dataTransfer.files;
                 if (files.length > 0) {
                     const file = files[0];
                     const fileInput = area.querySelector('input[type="file"]');
                     fileInput.files = files;
-                    
-                    // Trigger change event
                     const event = new Event('change', { bubbles: true });
                     fileInput.dispatchEvent(event);
                 }
