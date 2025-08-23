@@ -35,6 +35,573 @@
             background-color: #f8f9fa;
         }
     </style>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LekheeShare - Share Files, Text & Images</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #fd79a8;
+            --dark: #2d3436;
+            --light: #dfe6e9;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --error: #d63031;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 28px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--light);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #636e72;
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-header i {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .card-header h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body p {
+            color: #636e72;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .features {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #636e72;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .feature i {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature p {
+            color: #636e72;
+        }
+        
+        .upload-area {
+            border: 2px dashed var(--secondary);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin: 30px 0;
+            background: rgba(162, 155, 254, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            background: rgba(162, 155, 254, 0.1);
+        }
+        
+        .upload-area i {
+            font-size: 52px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .upload-area h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .upload-area p {
+            color: #636e72;
+            margin-bottom: 20px;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 12px;
+            background: var(--success);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateX(100vw);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .access-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .access-section h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .access-section p {
+            color: #636e72;
+            margin-bottom: 20px;
+        }
+
+        /* Tabs for different sharing options */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+        
+        .tab {
+            padding: 12px 25px;
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--light);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        textarea:focus, input[type="text"]:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .feature-grid {
+                flex-direction: column;
+            }
+            
+            .card {
+                max-width: 100%;
+            }
+            
+            .upload-area {
+                padding: 20px;
+            }
+        }
+
+    </style>
+    
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-91MV54EBJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-91MV54EBJQ');
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-share-alt"></i>
+                    <h1>LekheeShare</h1>
+                </div>
+                <nav class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/access">Access File</a>
+                    <a href="/text">Share Text</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h2>Share Files, Text & Images Instantly</h2>
+            <p>LekheeShare allows you to quickly share files, text snippets, and images with anyone. Simple, fast, and completely free!</p>
+            
+            <div class="tabs">
+                <div class="tab active" data-tab="file">File Share</div>
+                <div class="tab" data-tab="text">Text Share</div>
+                <div class="tab" data-tab="image">Image Share</div>
+            </div>
+            
+            <div class="tab-content active" id="file-tab">
+                <form action="/share" method="POST" enctype="multipart/form-data">
+                    <div class="upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Upload Your File</h3>
+                        <p>Drag & drop your file here or click to browse</p>
+                        <input type="file" id="file-upload" name="file" style="display: none;" required>
+                        <button type="button" class="btn" onclick="document.getElementById('file-upload').click()">Select File</button>
+                        <div id="file-info" style="margin-top: 15px; display: none;">
+                            <p><strong>Selected file:</strong> <span id="file-name"></span></p>
+                            <button type="submit" class="btn btn-block">Upload & Share</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="tab-content" id="text-tab">
+                <form action="/text" method="POST">
+                    <div class="upload-area">
+                        <i class="fas fa-font"></i>
+                        <h3>Share Text</h3>
+                        <p>Paste your text below and generate a shareable link</p>
+                        <textarea name="text_content" placeholder="Type or paste your text here..." required></textarea>
+                        <button type="submit" class="btn btn-block">Generate Link</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="tab-content" id="image-tab">
+                <form action="/share" method="POST" enctype="multipart/form-data">
+                    <div class="upload-area">
+                        <i class="fas fa-image"></i>
+                        <h3>Upload Image</h3>
+                        <p>Drag & drop your image here or click to browse</p>
+                        <input type="file" id="image-upload" name="file" accept="image/*" style="display: none;" required>
+                        <button type="button" class="btn" onclick="document.getElementById('image-upload').click()">Select Image</button>
+                        <div id="image-info" style="margin-top: 15px; display: none;">
+                            <p><strong>Selected image:</strong> <span id="image-name"></span></p>
+                            <button type="submit" class="btn btn-block">Upload & Share</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Access File Section -->
+        <div class="access-section">
+            <i class="fas fa-key" style="font-size: 48px; color: var(--primary); margin-bottom: 20px;"></i>
+            <h3>Access Shared Files</h3>
+            <p>Have a share code? Enter it below to access the shared file</p>
+            <a href="/access" class="btn">
+                <i class="fas fa-unlock me-2"></i>Access File
+            </a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Sharing with LekheeShare is simple and straightforward</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature">
+                    <i class="fas fa-upload"></i>
+                    <h3>1. Upload</h3>
+                    <p>Select your file, text, or image to share</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-link"></i>
+                    <h3>2. Get Code</h3>
+                    <p>We generate a unique 6-character code for your share</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-share-square"></i>
+                    <h3>3. Share</h3>
+                    <p>Share the code with anyone you want to access your file</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+        
+        // File upload
+        document.getElementById('file-upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                document.getElementById('file-name').textContent = file.name;
+                document.getElementById('file-info').style.display = 'block';
+            }
+        });
+        
+        // Image upload
+        document.getElementById('image-upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                document.getElementById('image-name').textContent = file.name;
+                document.getElementById('image-info').style.display = 'block';
+            }
+        });
+        
+        // Drag & drop
+        const uploadAreas = document.querySelectorAll('.upload-area');
+        uploadAreas.forEach(area => {
+            area.addEventListener('dragover', e => {
+                e.preventDefault();
+                area.style.background = 'rgba(162, 155, 254, 0.2)';
+                area.style.borderColor = 'var(--primary)';
+            });
+            
+            area.addEventListener('dragleave', () => {
+                area.style.background = 'rgba(162, 155, 254, 0.05)';
+                area.style.borderColor = 'var(--secondary)';
+            });
+            
+            area.addEventListener('drop', e => {
+                e.preventDefault();
+                area.style.background = 'rgba(162, 155, 254, 0.05)';
+                area.style.borderColor = 'var(--secondary)';
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    const file = files[0];
+                    const fileInput = area.querySelector('input[type="file"]');
+                    fileInput.files = files;
+                    const event = new Event('change', { bubbles: true });
+                    fileInput.dispatchEvent(event);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
