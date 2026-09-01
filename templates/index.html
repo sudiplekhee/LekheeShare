@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LekheeShare — Share Instantly</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5144c7;
+            --purple-light: #a29bfe;
+            --text: #17172b;
+            --muted: #77778c;
+            --border: #e9e8f2;
+            --white: #ffffff;
+            --bg: #f7f7fc;
+            --success: #00b894;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family:
+                Inter,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(162, 155, 254, .20),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(108, 92, 231, .12),
+                    transparent 28%
+                ),
+                var(--bg);
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 76px;
+            background: rgba(255,255,255,.88);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,.05);
+
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-inner {
+            width: min(1100px, 92%);
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--text);
+            text-decoration: none;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 11px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--purple-light)
+                );
+
+            box-shadow:
+                0 8px 20px rgba(108,92,231,.25);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: var(--muted);
+            text-decoration: none;
+
+            padding: 10px 16px;
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: #f1efff;
+        }
+
+        .nav-access {
+            color: white;
+            background: var(--primary);
+        }
+
+        .nav-access:hover {
+            color: white;
+            background: var(--primary-dark);
+        }
+
+        /* HERO */
+
+        .hero {
+            width: min(850px, 92%);
+            margin: auto;
+
+            text-align: center;
+
+            padding: 75px 0 35px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 8px 14px;
+
+            border-radius: 50px;
+
+            background: #eeecff;
+            color: var(--primary);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    #8b7cf6
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            margin: auto;
+
+            color: var(--muted);
+
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* MAIN CARD */
+
+        .share-card {
+            width: min(800px, 92%);
+            margin: 20px auto 80px;
+
+            background: rgba(255,255,255,.95);
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 25px 70px rgba(36,32,75,.10);
+
+            overflow: hidden;
+        }
+
+        /* TABS */
+
+        .tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            padding: 8px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tab {
+            border: none;
+            background: transparent;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            color: var(--muted);
+
+            cursor: pointer;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: .2s;
+        }
+
+        .tab i {
+            margin-right: 7px;
+        }
+
+        .tab:hover {
+            background: #f7f6ff;
+            color: var(--primary);
+        }
+
+        .tab.active {
+            background: #eeecff;
+            color: var(--primary);
+        }
+
+        /* TAB CONTENT */
+
+        .tab-content {
+            display: none;
+            padding: 45px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* UPLOAD */
+
+        .upload-zone {
+            border: 2px dashed #d9d5f5;
+
+            border-radius: 20px;
+
+            padding: 50px 30px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fbfaff,
+                    #ffffff
+                );
+
+            transition: .25s;
+        }
+
+        .upload-zone.dragging {
+            border-color: var(--primary);
+            background: #f3f1ff;
+            transform: scale(1.01);
+        }
+
+        .upload-icon {
+            width: 80px;
+            height: 80px;
+
+            margin: auto auto 20px;
+
+            border-radius: 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 32px;
+
+            color: var(--primary);
+
+            background: #eeecff;
+        }
+
+        .upload-zone h2 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .upload-zone p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .choose-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 13px 22px;
+
+            border: none;
+            border-radius: 12px;
+
+            background: var(--primary);
+            color: white;
+
+            font-weight: 700;
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+        .choose-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .file-info {
+            display: none;
+
+            margin-top: 22px;
+            padding: 15px;
+
+            border-radius: 12px;
+
+            background: #f5f4ff;
+
+            color: var(--primary);
+
+            font-weight: 700;
+        }
+
+        .generate-btn {
+            width: 100%;
+
+            margin-top: 18px;
+
+            padding: 15px;
+
+            border: none;
+            border-radius: 12px;
+
+            background: var(--text);
+            color: white;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+        .generate-btn:hover {
+            background: var(--primary);
+        }
+
+        /* TEXT */
+
+        textarea {
+            width: 100%;
+            min-height: 230px;
+
+            resize: vertical;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 18px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            background: #fafafd;
+        }
+
+        textarea:focus {
+            border-color: var(--primary);
+
+            box-shadow:
+                0 0 0 4px rgba(108,92,231,.08);
+        }
+
+        /* ACCESS */
+
+        .access-box {
+            width: min(800px, 92%);
+            margin: 0 auto 80px;
+
+            padding: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 45px rgba(36,32,75,.07);
+        }
+
+        .access-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .access-icon {
+            width: 50px;
+            height: 50px;
+
+            border-radius: 14px;
+
+            background: #eeecff;
+
+            color: var(--primary);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .access-left h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .access-left p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .access-button {
+            padding: 12px 18px;
+
+            border-radius: 10px;
+
+            color: white;
+            background: var(--primary);
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        .access-button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* HOW IT WORKS */
+
+        .how {
+            background: white;
+            padding: 75px 0;
+        }
+
+        .how-inner {
+            width: min(1000px, 92%);
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .step {
+            padding: 30px;
+
+            text-align: center;
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+
+            margin: auto auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #eeecff;
+            color: var(--primary);
+
+            font-weight: 800;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 700px) {
+
+            .nav-links .nav-link:not(.nav-access) {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .tab-content {
+                padding: 25px 18px;
+            }
+
+            .tabs {
+                grid-template-columns: 1fr;
+            }
+
+            .access-box {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .access-button {
+                text-align: center;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="nav-inner">
+
+        <a href="/" class="logo">
+
+            <span class="logo-icon">
+                <i class="fas fa-share-nodes"></i>
+            </span>
+
+            LekheeShare
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="/" class="nav-link">
+                Home
+            </a>
+
+            <a
+                href="{{ url_for('access_file') }}"
+                class="nav-link nav-access"
+            >
+                <i class="fas fa-key"></i>
+                Access Code
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="badge">
+
+        <i class="fas fa-bolt"></i>
+
+        Fast & Simple File Sharing
+
+    </div>
+
+
+    <h1>
+
+        Share anything.<br>
+
+        <span class="gradient-text">
+            Anywhere. Instantly.
+        </span>
+
+    </h1>
+
+
+    <p class="hero-description">
+
+        Upload files, images or text and get a unique
+        6-character code. Share the code with anyone
+        and access your content instantly.
+
+    </p>
+
+</section>
+
+
+
+<!-- SHARE CARD -->
+
+<section class="share-card">
+
+
+    <!-- TABS -->
+
+    <div class="tabs">
+
+        <button
+            class="tab active"
+            data-tab="file"
+            type="button"
+        >
+
+            <i class="fas fa-file-arrow-up"></i>
+
+            File
+
+        </button>
+
+
+        <button
+            class="tab"
+            data-tab="text"
+            type="button"
+        >
+
+            <i class="fas fa-pen"></i>
+
+            Text
+
+        </button>
+
+
+        <button
+            class="tab"
+            data-tab="image"
+            type="button"
+        >
+
+            <i class="fas fa-image"></i>
+
+            Image
+
+        </button>
+
+    </div>
+
+
+
+    <!-- FILE TAB -->
+
+    <div
+        class="tab-content active"
+        id="file-tab"
+    >
+
+        <form
+            action="{{ url_for('share') }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+            <div
+                class="upload-zone"
+                id="file-zone"
+            >
+
+                <div class="upload-icon">
+
+                    <i class="fas fa-cloud-arrow-up"></i>
+
+                </div>
+
+
+                <h2>
+                    Upload your file
+                </h2>
+
+
+                <p>
+                    Drag & drop your file here or choose a file
+                </p>
+
+
+                <input
+                    type="file"
+                    id="file-input"
+                    name="file"
+                    hidden
+                    required
+                >
+
+
+                <button
+                    type="button"
+                    class="choose-btn"
+                    onclick="document.getElementById('file-input').click()"
+                >
+
+                    <i class="fas fa-folder-open"></i>
+
+                    Choose File
+
+                </button>
+
+
+                <div
+                    class="file-info"
+                    id="file-info"
+                >
+
+                    <i class="fas fa-file"></i>
+
+                    <span id="file-name"></span>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="generate-btn"
+                >
+
+                    <i class="fas fa-wand-magic-sparkles"></i>
+
+                    Upload & Generate Code
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+    <!-- TEXT TAB -->
+
+    <div
+        class="tab-content"
+        id="text-tab"
+    >
+
+        <form
+            action="{{ url_for('share_text') }}"
+            method="POST"
+        >
+
+            <textarea
+                name="text_content"
+                placeholder="Write or paste your text here..."
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="generate-btn"
+            >
+
+                <i class="fas fa-wand-magic-sparkles"></i>
+
+                Generate Share Code
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+
+    <!-- IMAGE TAB -->
+
+    <div
+        class="tab-content"
+        id="image-tab"
+    >
+
+        <form
+            action="{{ url_for('share') }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+            <div
+                class="upload-zone"
+                id="image-zone"
+            >
+
+                <div class="upload-icon">
+
+                    <i class="fas fa-image"></i>
+
+                </div>
+
+
+                <h2>
+                    Upload an image
+                </h2>
+
+
+                <p>
+                    PNG, JPG, JPEG or GIF
+                </p>
+
+
+                <input
+                    type="file"
+                    id="image-input"
+                    name="file"
+                    accept=".png,.jpg,.jpeg,.gif"
+                    hidden
+                    required
+                >
+
+
+                <button
+                    type="button"
+                    class="choose-btn"
+                    onclick="document.getElementById('image-input').click()"
+                >
+
+                    <i class="fas fa-image"></i>
+
+                    Choose Image
+
+                </button>
+
+
+                <div
+                    class="file-info"
+                    id="image-info"
+                >
+
+                    <i class="fas fa-image"></i>
+
+                    <span id="image-name"></span>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="generate-btn"
+                >
+
+                    <i class="fas fa-wand-magic-sparkles"></i>
+
+                    Upload & Generate Code
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- ACCESS -->
+
+<section class="access-box">
+
+    <div class="access-left">
+
+        <div class="access-icon">
+
+            <i class="fas fa-key"></i>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Already have a share code?
+            </h3>
+
+            <p>
+                Enter your 6-character code to access a shared file.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('access_file') }}"
+        class="access-button"
+    >
+
+        Access File
+
+        <i class="fas fa-arrow-right"></i>
+
+    </a>
+
+</section>
+
+
+
+<!-- HOW IT WORKS -->
+
+<section class="how">
+
+    <div class="how-inner">
+
+        <div class="section-heading">
+
+            <h2>
+                How it works
+            </h2>
+
+            <p>
+                Sharing files takes only a few seconds.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>
+                    Upload
+                </h3>
+
+                <p>
+                    Select a file, image or enter text
+                    that you want to share.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>
+                    Get Your Code
+                </h3>
+
+                <p>
+                    LekheeShare automatically generates
+                    a unique 6-character code.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>
+                    Share
+                </h3>
+
+                <p>
+                    Give the code or link to someone
+                    and they can access your file.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    © 2026 LekheeShare · Simple file sharing
+
+</footer>
+
+
+
+<script>
+
+    /* =========================
+       TAB SWITCHING
+    ========================== */
+
+    const tabs =
+        document.querySelectorAll(".tab");
+
+    const contents =
+        document.querySelectorAll(".tab-content");
+
+
+    tabs.forEach(function(tab) {
+
+        tab.addEventListener(
+            "click",
+            function() {
+
+                const target =
+                    tab.dataset.tab;
+
+
+                tabs.forEach(function(item) {
+
+                    item.classList.remove("active");
+
+                });
+
+
+                contents.forEach(function(content) {
+
+                    content.classList.remove("active");
+
+                });
+
+
+                tab.classList.add("active");
+
+
+                document
+                    .getElementById(target + "-tab")
+                    .classList.add("active");
+
+            }
+        );
+
+    });
+
+
+
+    /* =========================
+       FILE INPUT
+    ========================== */
+
+    const fileInput =
+        document.getElementById("file-input");
+
+    const fileInfo =
+        document.getElementById("file-info");
+
+    const fileName =
+        document.getElementById("file-name");
+
+
+    fileInput.addEventListener(
+        "change",
+        function() {
+
+            if (this.files.length > 0) {
+
+                fileName.textContent =
+                    this.files[0].name;
+
+                fileInfo.style.display =
+                    "block";
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================
+       IMAGE INPUT
+    ========================== */
+
+    const imageInput =
+        document.getElementById("image-input");
+
+    const imageInfo =
+        document.getElementById("image-info");
+
+    const imageName =
+        document.getElementById("image-name");
+
+
+    imageInput.addEventListener(
+        "change",
+        function() {
+
+            if (this.files.length > 0) {
+
+                imageName.textContent =
+                    this.files[0].name;
+
+                imageInfo.style.display =
+                    "block";
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================
+       DRAG & DROP
+    ========================== */
+
+    function setupDropZone(zoneId, inputId) {
+
+        const zone =
+            document.getElementById(zoneId);
+
+        const input =
+            document.getElementById(inputId);
+
+
+        zone.addEventListener(
+            "dragover",
+            function(event) {
+
+                event.preventDefault();
+
+                zone.classList.add("dragging");
+
+            }
+        );
+
+
+        zone.addEventListener(
+            "dragleave",
+            function() {
+
+                zone.classList.remove("dragging");
+
+            }
+        );
+
+
+        zone.addEventListener(
+            "drop",
+            function(event) {
+
+                event.preventDefault();
+
+                zone.classList.remove("dragging");
+
+
+                if (
+                    event.dataTransfer.files &&
+                    event.dataTransfer.files.length > 0
+                ) {
+
+                    input.files =
+                        event.dataTransfer.files;
+
+                    input.dispatchEvent(
+                        new Event("change")
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    setupDropZone(
+        "file-zone",
+        "file-input"
+    );
+
+
+    setupDropZone(
+        "image-zone",
+        "image-input"
+    );
+
+</script>
+
+
+</body>
+
+</html>

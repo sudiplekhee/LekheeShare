@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Share Created — LekheeShare</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5144c7;
+            --purple-light: #a29bfe;
+            --text: #17172b;
+            --muted: #77778c;
+            --border: #e9e8f2;
+            --bg: #f7f7fc;
+            --success: #00b894;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 20% 10%,
+                    rgba(162,155,254,.25),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(108,92,231,.15),
+                    transparent 30%
+                ),
+                var(--bg);
+        }
+
+        .navbar {
+            height: 76px;
+
+            background: rgba(255,255,255,.9);
+
+            border-bottom: 1px solid var(--border);
+
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-inner {
+            width: min(1050px,92%);
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: var(--text);
+
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        .home-btn {
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            background: #eeecff;
+            color: var(--primary);
+
+            text-decoration: none;
+
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .wrapper {
+            width: min(650px,92%);
+
+            margin: 70px auto;
+        }
+
+        .card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 45px;
+
+            text-align: center;
+
+            box-shadow:
+                0 25px 70px rgba(36,32,75,.10);
+        }
+
+        .success-icon {
+            width: 82px;
+            height: 82px;
+
+            margin: auto auto 22px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #e7faf5;
+
+            color: var(--success);
+
+            font-size: 35px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .code-box {
+            padding: 28px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f2f0ff,
+                    #faf9ff
+                );
+
+            border: 2px dashed #cfc9ff;
+        }
+
+        .code-label {
+            color: var(--muted);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+        }
+
+        .code {
+            color: var(--primary);
+
+            font-size: 46px;
+
+            font-family: monospace;
+
+            font-weight: 900;
+
+            letter-spacing: 9px;
+        }
+
+        .copy-code {
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: var(--primary);
+            color: white;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .copy-code:hover {
+            background: var(--primary-dark);
+        }
+
+        .link-area {
+            margin-top: 28px;
+
+            text-align: left;
+        }
+
+        .link-area label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .link-row {
+            display: flex;
+        }
+
+        .link-row input {
+            flex: 1;
+
+            min-width: 0;
+
+            padding: 13px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px 0 0 10px;
+
+            outline: none;
+
+            color: var(--muted);
+
+            background: #fafafd;
+        }
+
+        .copy-link {
+            width: 50px;
+
+            border: none;
+
+            border-radius: 0 10px 10px 0;
+
+            background: var(--text);
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .buttons {
+            display: grid;
+
+            gap: 10px;
+
+            margin-top: 28px;
+        }
+
+        .btn {
+            padding: 14px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            font-size: 14px;
+        }
+
+        .access {
+            background: var(--primary);
+            color: white;
+        }
+
+        .access:hover {
+            background: var(--primary-dark);
+        }
+
+        .home {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .home:hover {
+            background: #f7f7fc;
+        }
+
+        @media(max-width:600px) {
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .code {
+                font-size: 34px;
+                letter-spacing: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+        <a href="/" class="logo">
+
+            <i class="fas fa-share-nodes"></i>
+
+            LekheeShare
+
+        </a>
+
+
+        <a href="/" class="home-btn">
+
+            <i class="fas fa-house"></i>
+
+            Home
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<div class="wrapper">
+
+    <div class="card">
+
+
+        <div class="success-icon">
+
+            <i class="fas fa-check"></i>
+
+        </div>
+
+
+        <h1>
+            Your share is ready!
+        </h1>
+
+
+        <p class="description">
+
+            Your file has been uploaded successfully.
+            Use the code below to access it.
+
+        </p>
+
+
+
+        <!-- CODE -->
+
+        <div class="code-box">
+
+            <div class="code-label">
+
+                Your Share Code
+
+            </div>
+
+
+            <div
+                class="code"
+                id="shareCode"
+            >
+
+                {{ share_code }}
+
+            </div>
+
+
+            <button
+                class="copy-code"
+                onclick="copyCode()"
+            >
+
+                <i class="fas fa-copy"></i>
+
+                Copy Share Code
+
+            </button>
+
+        </div>
+
+
+
+        <!-- LINK -->
+
+        <div class="link-area">
+
+            <label>
+                Share Link
+            </label>
+
+
+            <div class="link-row">
+
+                <input
+                    type="text"
+                    id="shareUrl"
+                    value="{{ share_url }}"
+                    readonly
+                >
+
+
+                <button
+                    class="copy-link"
+                    onclick="copyLink()"
+                    title="Copy link"
+                >
+
+                    <i class="fas fa-copy"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <a
+                href="{{ url_for('access_file') }}"
+                class="btn access"
+            >
+
+                <i class="fas fa-key"></i>
+
+                Access File Using Code
+
+            </a>
+
+
+            <a
+                href="/"
+                class="btn home"
+            >
+
+                <i class="fas fa-plus"></i>
+
+                Share Another File
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    function copyCode() {
+
+        const code =
+            document
+                .getElementById("shareCode")
+                .innerText
+                .trim();
+
+
+        navigator.clipboard.writeText(code)
+            .then(function() {
+
+                alert(
+                    "Code copied: " + code
+                );
+
+            });
+
+    }
+
+
+    function copyLink() {
+
+        const link =
+            document
+                .getElementById("shareUrl")
+                .value;
+
+
+        navigator.clipboard.writeText(link)
+            .then(function() {
+
+                alert(
+                    "Share link copied!"
+                );
+
+            });
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
