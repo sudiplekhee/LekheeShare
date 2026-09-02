@@ -1,6 +1,6 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8">
@@ -8,48 +8,61 @@
 
     <title>LekheeShare — Share Instantly</title>
 
+    <!-- Font Awesome -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     >
 
-    <style>
-=======
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LekheeShare - Share Files, Text & Images</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --accent: #fd79a8;
-            --dark: #2d3436;
-            --light: #dfe6e9;
-            --success: #00b894;
-            --warning: #fdcb6e;
-            --error: #d63031;
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-91MV54EBJQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
         }
-        
->>>>>>> b7ba4ffd24021a83426d5741a4a7b62c0fa41bf6
+
+        gtag('js', new Date());
+        gtag('config', 'G-91MV54EBJQ');
+    </script>
+
+    <style>
+        /* =========================
+           COLOR VARIABLES
+        ========================= */
+
+        :root {
+            --primary: #0b2a4a;
+            --primary-dark: #061c33;
+            --secondary: #123f6d;
+            --blue: #1769aa;
+            --blue-light: #eaf4ff;
+
+            --text: #172033;
+            --muted: #667085;
+
+            --white: #ffffff;
+            --background: #f4f7fb;
+
+            --border: #dce5ef;
+            --success: #12a875;
+
+            --shadow: 0 12px 35px rgba(11, 42, 74, 0.10);
+        }
+
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-<<<<<<< HEAD
         }
 
-        :root {
-            --primary: #6c5ce7;
-            --primary-dark: #5144c7;
-            --purple-light: #a29bfe;
-            --text: #17172b;
-            --muted: #77778c;
-            --border: #e9e8f2;
-            --white: #ffffff;
-            --bg: #f7f7fc;
-            --success: #00b894;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -61,245 +74,185 @@
                 sans-serif;
 
             color: var(--text);
-
-            background:
-                radial-gradient(
-                    circle at 10% 10%,
-                    rgba(162, 155, 254, .20),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 90% 20%,
-                    rgba(108, 92, 231, .12),
-                    transparent 28%
-                ),
-                var(--bg);
+            background: var(--background);
+            line-height: 1.6;
         }
 
-        /* NAVBAR */
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         .navbar {
-            height: 76px;
-            background: rgba(255,255,255,.88);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0,0,0,.05);
+            height: 74px;
+            background: var(--primary);
+            box-shadow: 0 4px 20px rgba(6, 28, 51, 0.20);
 
             display: flex;
             align-items: center;
         }
 
         .nav-inner {
-            width: min(1100px, 92%);
-            margin: auto;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-=======
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: var(--dark);
-            line-height: 1.6;
-            min-height: 100vh;
-            padding-bottom: 60px;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
->>>>>>> b7ba4ffd24021a83426d5741a4a7b62c0fa41bf6
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-<<<<<<< HEAD
+            gap: 11px;
 
-            color: var(--text);
+            color: white;
             text-decoration: none;
-
-            font-size: 20px;
-            font-weight: 800;
         }
 
         .logo-icon {
-            width: 38px;
-            height: 38px;
-
-            border-radius: 11px;
+            width: 42px;
+            height: 42px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            color: white;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.12);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    var(--purple-light)
-                );
+            font-size: 20px;
+        }
 
-            box-shadow:
-                0 8px 20px rgba(108,92,231,.25);
+        .logo-text {
+            font-size: 23px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
         }
 
         .nav-links {
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 8px;
         }
 
-        .nav-link {
-            color: var(--muted);
+        .nav-links a {
+            color: #dcecff;
             text-decoration: none;
 
-            padding: 10px 16px;
-            border-radius: 10px;
+            padding: 9px 15px;
+            border-radius: 8px;
 
             font-size: 14px;
             font-weight: 600;
 
-            transition: .2s;
+            transition: 0.25s ease;
         }
 
-        .nav-link:hover {
-            color: var(--primary);
-            background: #f1efff;
-        }
-
-        .nav-access {
+        .nav-links a:hover {
             color: white;
-            background: var(--primary);
+            background: rgba(255, 255, 255, 0.10);
         }
 
-        .nav-access:hover {
-            color: white;
-            background: var(--primary-dark);
-        }
-
-        /* HERO */
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            width: min(850px, 92%);
-            margin: auto;
-
             text-align: center;
-
-            padding: 75px 0 35px;
+            padding: 70px 0 45px;
         }
 
-        .badge {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
+            gap: 8px;
 
-            padding: 8px 14px;
+            background: var(--blue-light);
+            color: var(--secondary);
 
+            padding: 7px 14px;
             border-radius: 50px;
-
-            background: #eeecff;
-            color: var(--primary);
 
             font-size: 13px;
             font-weight: 700;
 
-            margin-bottom: 22px;
+            margin-bottom: 18px;
         }
 
         .hero h1 {
-            font-size: clamp(38px, 6vw, 64px);
-            line-height: 1.05;
+            max-width: 760px;
+            margin: auto;
 
-            letter-spacing: -2px;
+            color: var(--primary);
 
-            margin-bottom: 20px;
+            font-size: clamp(2.1rem, 5vw, 3.4rem);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
         }
 
-        .gradient-text {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    #8b7cf6
-                );
-
-            -webkit-background-clip: text;
-            background-clip: text;
-
-            color: transparent;
+        .hero h1 span {
+            color: var(--blue);
         }
 
         .hero-description {
-            max-width: 620px;
-            margin: auto;
+            max-width: 650px;
+            margin: 18px auto 35px;
 
             color: var(--muted);
-
             font-size: 17px;
-            line-height: 1.7;
         }
 
-        /* MAIN CARD */
+        /* =========================
+           SHARE BOX
+        ========================= */
 
-        .share-card {
-            width: min(800px, 92%);
-            margin: 20px auto 80px;
+        .share-box {
+            max-width: 850px;
+            margin: auto;
 
-            background: rgba(255,255,255,.95);
-
+            background: white;
             border: 1px solid var(--border);
+            border-radius: 20px;
 
-            border-radius: 24px;
+            padding: 10px;
 
-            box-shadow:
-                0 25px 70px rgba(36,32,75,.10);
-
-            overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
-        /* TABS */
+        /* =========================
+           TABS
+        ========================= */
 
         .tabs {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            gap: 5px;
 
-            padding: 8px;
+            padding: 6px;
+            background: #f1f5f9;
 
-            border-bottom: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 15px;
         }
 
         .tab {
+            flex: 1;
+
             border: none;
             background: transparent;
 
-            padding: 15px;
+            padding: 12px 10px;
 
-            border-radius: 12px;
+            border-radius: 10px;
 
             color: var(--muted);
-
-            cursor: pointer;
 
             font-size: 14px;
             font-weight: 700;
 
-            transition: .2s;
+            cursor: pointer;
+            transition: 0.25s ease;
         }
 
         .tab i {
@@ -307,1557 +260,955 @@
         }
 
         .tab:hover {
-            background: #f7f6ff;
             color: var(--primary);
         }
 
         .tab.active {
-            background: #eeecff;
-            color: var(--primary);
+            background: var(--primary);
+            color: white;
+
+            box-shadow: 0 4px 12px rgba(11, 42, 74, 0.20);
         }
 
-        /* TAB CONTENT */
+        /* =========================
+           TAB CONTENT
+        ========================= */
 
         .tab-content {
             display: none;
-            padding: 45px;
         }
 
         .tab-content.active {
             display: block;
         }
 
-        /* UPLOAD */
+        /* =========================
+           UPLOAD AREA
+        ========================= */
 
-        .upload-zone {
-            border: 2px dashed #d9d5f5;
+        .upload-area {
+            border: 2px dashed #b8c9da;
+            border-radius: 16px;
 
-            border-radius: 20px;
+            padding: 45px 25px;
 
-            padding: 50px 30px;
+            background: #fbfdff;
 
             text-align: center;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #fbfaff,
-                    #ffffff
-                );
-
-            transition: .25s;
+            transition: 0.25s ease;
         }
 
-        .upload-zone.dragging {
-            border-color: var(--primary);
-            background: #f3f1ff;
-            transform: scale(1.01);
+        .upload-area:hover {
+            border-color: var(--blue);
+            background: #f7fbff;
         }
 
         .upload-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
 
-            margin: auto auto 20px;
-
-            border-radius: 22px;
+            margin: 0 auto 18px;
 
             display: flex;
             align-items: center;
             justify-content: center;
-
-            font-size: 32px;
-
-            color: var(--primary);
-
-            background: #eeecff;
-        }
-
-        .upload-zone h2 {
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .upload-zone p {
-            color: var(--muted);
-            margin-bottom: 25px;
-        }
-
-        .choose-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            padding: 13px 22px;
-
-            border: none;
-            border-radius: 12px;
-
-            background: var(--primary);
-            color: white;
-
-            font-weight: 700;
-            cursor: pointer;
-
-            transition: .2s;
-        }
-
-        .choose-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .file-info {
-            display: none;
-
-            margin-top: 22px;
-            padding: 15px;
-
-            border-radius: 12px;
-
-            background: #f5f4ff;
-
-            color: var(--primary);
-
-            font-weight: 700;
-        }
-
-        .generate-btn {
-            width: 100%;
-
-            margin-top: 18px;
-
-            padding: 15px;
-
-            border: none;
-            border-radius: 12px;
-
-            background: var(--text);
-            color: white;
-
-            font-size: 15px;
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: .2s;
-        }
-
-        .generate-btn:hover {
-            background: var(--primary);
-        }
-
-        /* TEXT */
-
-        textarea {
-            width: 100%;
-            min-height: 230px;
-
-            resize: vertical;
-
-            border: 1px solid var(--border);
-
-            border-radius: 16px;
-
-            padding: 18px;
-
-            font-size: 15px;
-
-            outline: none;
-
-            background: #fafafd;
-        }
-
-        textarea:focus {
-            border-color: var(--primary);
-
-            box-shadow:
-                0 0 0 4px rgba(108,92,231,.08);
-        }
-
-        /* ACCESS */
-
-        .access-box {
-            width: min(800px, 92%);
-            margin: 0 auto 80px;
-
-            padding: 30px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-
-            background: white;
-
-            border: 1px solid var(--border);
 
             border-radius: 18px;
 
-            box-shadow:
-                0 15px 45px rgba(36,32,75,.07);
+            background: var(--blue-light);
+            color: var(--blue);
+
+            font-size: 28px;
         }
 
-        .access-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .access-icon {
-            width: 50px;
-            height: 50px;
-
-            border-radius: 14px;
-
-            background: #eeecff;
-
+        .upload-area h3 {
             color: var(--primary);
+            font-size: 20px;
+            margin-bottom: 7px;
+        }
 
-            display: flex;
+        .upload-area p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-        }
+            gap: 8px;
 
-        .access-left h3 {
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .access-left p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .access-button {
-            padding: 12px 18px;
-
+            border: none;
             border-radius: 10px;
 
-            color: white;
-            background: var(--primary);
+            padding: 12px 22px;
 
-            text-decoration: none;
+            background: var(--primary);
+            color: white;
 
             font-size: 14px;
             font-weight: 700;
 
-            white-space: nowrap;
+            text-decoration: none;
+            cursor: pointer;
+
+            transition: 0.25s ease;
         }
 
-        .access-button:hover {
+        .btn:hover {
             background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 7px 18px rgba(11, 42, 74, 0.20);
         }
 
-        /* HOW IT WORKS */
+        .btn-block {
+            width: 100%;
+        }
 
-        .how {
+        .file-info {
+            margin-top: 20px;
+            padding: 12px 15px;
+
+            background: #f1f7fd;
+            border-radius: 10px;
+
+            color: var(--secondary);
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           TEXTAREA
+        ========================= */
+
+        textarea {
+            width: 100%;
+
+            min-height: 210px;
+
+            padding: 16px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            outline: none;
+
+            font-family: inherit;
+            font-size: 15px;
+
+            color: var(--text);
+
+            resize: vertical;
+
             background: white;
+
+            margin-bottom: 15px;
+        }
+
+        textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.10);
+        }
+
+        /* =========================
+           ACCESS SECTION
+        ========================= */
+
+        .access-section {
+            max-width: 850px;
+            margin: 30px auto 75px;
+
+            background: var(--primary);
+            color: white;
+
+            border-radius: 18px;
+
+            padding: 32px;
+
+            text-align: center;
+
+            box-shadow: var(--shadow);
+        }
+
+        .access-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 15px;
+
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.10);
+
+            font-size: 22px;
+        }
+
+        .access-section h2 {
+            font-size: 22px;
+            margin-bottom: 7px;
+        }
+
+        .access-section p {
+            color: #c9d9e9;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .access-section .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .access-section .btn:hover {
+            background: #edf5fc;
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
             padding: 75px 0;
+            background: white;
+
+            border-top: 1px solid var(--border);
         }
 
-        .how-inner {
-            width: min(1000px, 92%);
-            margin: auto;
-        }
-
-        .section-heading {
+        .section-title {
             text-align: center;
             margin-bottom: 45px;
         }
 
-        .section-heading h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 30px;
+            margin-bottom: 8px;
         }
 
-        .section-heading p {
+        .section-title p {
             color: var(--muted);
+            font-size: 15px;
         }
 
-        .steps {
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 22px;
         }
 
-        .step {
-            padding: 30px;
+        .feature {
+            padding: 30px 25px;
+
+            background: #fbfcfe;
+
+            border: 1px solid var(--border);
+            border-radius: 16px;
 
             text-align: center;
 
-            border: 1px solid var(--border);
-            border-radius: 18px;
+            transition: 0.25s ease;
         }
 
-        .step-number {
-            width: 45px;
-            height: 45px;
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
 
-            margin: auto auto 18px;
+        .feature-icon {
+            width: 58px;
+            height: 58px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border-radius: 50%;
+            margin: 0 auto 18px;
 
-            background: #eeecff;
-            color: var(--primary);
+            border-radius: 14px;
 
-            font-weight: 800;
+            background: var(--blue-light);
+            color: var(--blue);
+
+            font-size: 22px;
         }
 
-        .step h3 {
+        .feature h3 {
+            color: var(--primary);
+            font-size: 18px;
             margin-bottom: 8px;
         }
 
-        .step p {
+        .feature p {
             color: var(--muted);
             font-size: 14px;
-            line-height: 1.6;
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            padding: 30px;
+            background: var(--primary);
+            color: #c9d9e9;
 
             text-align: center;
 
-            color: var(--muted);
+            padding: 25px 0;
 
             font-size: 13px;
         }
 
-        /* RESPONSIVE */
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
 
-            .nav-links .nav-link:not(.nav-access) {
-                display: none;
+            .navbar {
+                height: auto;
+                padding: 14px 0;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                padding: 7px 10px;
+                font-size: 13px;
             }
 
             .hero {
-                padding-top: 50px;
+                padding: 50px 0 30px;
             }
 
-            .tab-content {
-                padding: 25px 18px;
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .share-box {
+                padding: 7px;
             }
 
             .tabs {
-                grid-template-columns: 1fr;
-            }
-
-            .access-box {
                 flex-direction: column;
-                align-items: stretch;
             }
 
-            .access-button {
-                text-align: center;
+            .tab {
+                width: 100%;
             }
 
-            .steps {
+            .upload-area {
+                padding: 35px 18px;
+            }
+
+            .feature-grid {
                 grid-template-columns: 1fr;
             }
 
+            .access-section {
+                margin-bottom: 50px;
+                padding: 28px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .upload-area h3 {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 
-
 <body>
 
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
-<!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-inner">
 
-<header class="navbar">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
 
-    <div class="nav-inner">
-
-        <a href="/" class="logo">
-
-            <span class="logo-icon">
-                <i class="fas fa-share-nodes"></i>
-            </span>
-
-            LekheeShare
-
-        </a>
-
-
-        <nav class="nav-links">
-
-            <a href="/" class="nav-link">
-                Home
+                <span class="logo-text">LekheeShare</span>
             </a>
 
-            <a
-                href="{{ url_for('access_file') }}"
-                class="nav-link nav-access"
-            >
+            <div class="nav-links">
+                <a href="/">
+                    <i class="fas fa-house"></i>
+                    Home
+                </a>
+
+                <a href="/access">
+                    <i class="fas fa-key"></i>
+                    Access File
+                </a>
+
+                <a href="/text">
+                    <i class="fas fa-font"></i>
+                    Share Text
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                <i class="fas fa-bolt"></i>
+                Fast & Simple File Sharing
+            </div>
+
+            <h1>
+                Share Files,
+                <span>Text & Images</span>
+                Instantly
+            </h1>
+
+            <p class="hero-description">
+                Upload your files, share text or images and get a unique
+                6-character code. Simple, fast and secure.
+            </p>
+
+
+            <!-- SHARE BOX -->
+
+            <div class="share-box">
+
+                <!-- Tabs -->
+
+                <div class="tabs">
+
+                    <button
+                        class="tab active"
+                        data-tab="file"
+                        type="button"
+                    >
+                        <i class="fas fa-file-arrow-up"></i>
+                        File Share
+                    </button>
+
+                    <button
+                        class="tab"
+                        data-tab="text"
+                        type="button"
+                    >
+                        <i class="fas fa-align-left"></i>
+                        Text Share
+                    </button>
+
+                    <button
+                        class="tab"
+                        data-tab="image"
+                        type="button"
+                    >
+                        <i class="fas fa-image"></i>
+                        Image Share
+                    </button>
+
+                </div>
+
+
+                <!-- =====================
+                     FILE SHARE
+                ====================== -->
+
+                <div
+                    class="tab-content active"
+                    id="file-tab"
+                >
+
+                    <form
+                        action="/share"
+                        method="POST"
+                        enctype="multipart/form-data"
+                    >
+
+                        <div class="upload-area">
+
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-arrow-up"></i>
+                            </div>
+
+                            <h3>Upload Your File</h3>
+
+                            <p>
+                                Select a file from your computer or drag
+                                and drop it here.
+                            </p>
+
+                            <input
+                                type="file"
+                                id="file-upload"
+                                name="file"
+                                hidden
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="btn"
+                                onclick="document.getElementById('file-upload').click()"
+                            >
+                                <i class="fas fa-folder-open"></i>
+                                Select File
+                            </button>
+
+
+                            <div
+                                id="file-info"
+                                class="file-info"
+                                style="display:none;"
+                            >
+
+                                <p>
+                                    <strong>Selected:</strong>
+                                    <span id="file-name"></span>
+                                </p>
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-block"
+                                >
+                                    <i class="fas fa-upload"></i>
+                                    Upload & Share
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- =====================
+                     TEXT SHARE
+                ====================== -->
+
+                <div
+                    class="tab-content"
+                    id="text-tab"
+                >
+
+                    <form
+                        action="/text"
+                        method="POST"
+                    >
+
+                        <div class="upload-area">
+
+                            <div class="upload-icon">
+                                <i class="fas fa-align-left"></i>
+                            </div>
+
+                            <h3>Share Text</h3>
+
+                            <p>
+                                Paste your text below and generate a
+                                unique share code.
+                            </p>
+
+                            <textarea
+                                name="text_content"
+                                placeholder="Type or paste your text here..."
+                                required
+                            ></textarea>
+
+                            <button
+                                type="submit"
+                                class="btn btn-block"
+                            >
+                                <i class="fas fa-link"></i>
+                                Generate Share Code
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- =====================
+                     IMAGE SHARE
+                ====================== -->
+
+                <div
+                    class="tab-content"
+                    id="image-tab"
+                >
+
+                    <form
+                        action="/share"
+                        method="POST"
+                        enctype="multipart/form-data"
+                    >
+
+                        <div class="upload-area">
+
+                            <div class="upload-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+
+                            <h3>Upload Image</h3>
+
+                            <p>
+                                Select or drag an image to share instantly.
+                            </p>
+
+                            <input
+                                type="file"
+                                id="image-upload"
+                                name="file"
+                                accept="image/*"
+                                hidden
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="btn"
+                                onclick="document.getElementById('image-upload').click()"
+                            >
+                                <i class="fas fa-image"></i>
+                                Select Image
+                            </button>
+
+
+                            <div
+                                id="image-info"
+                                class="file-info"
+                                style="display:none;"
+                            >
+
+                                <p>
+                                    <strong>Selected:</strong>
+                                    <span id="image-name"></span>
+                                </p>
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-block"
+                                >
+                                    <i class="fas fa-cloud-arrow-up"></i>
+                                    Upload & Share
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACCESS SECTION
+        ========================= -->
+
+        <section class="access-section">
+
+            <div class="access-icon">
+                <i class="fas fa-unlock-keyhole"></i>
+            </div>
+
+            <h2>Access a Shared File</h2>
+
+            <p>
+                Already have a 6-character share code?
+                Enter it to access your shared content.
+            </p>
+
+            <a href="/access" class="btn">
                 <i class="fas fa-key"></i>
-                Access Code
+                Access File
             </a>
 
-        </nav>
+        </section>
 
-    </div>
-
-</header>
+    </main>
 
 
+    <!-- =========================
+         FEATURES
+    ========================= -->
 
-<!-- HERO -->
+    <section class="features">
 
-<section class="hero">
+        <div class="container">
 
-    <div class="badge">
+            <div class="section-title">
 
-        <i class="fas fa-bolt"></i>
-
-        Fast & Simple File Sharing
-
-    </div>
-
-
-    <h1>
-
-        Share anything.<br>
-
-        <span class="gradient-text">
-            Anywhere. Instantly.
-        </span>
-
-    </h1>
-
-
-    <p class="hero-description">
-
-        Upload files, images or text and get a unique
-        6-character code. Share the code with anyone
-        and access your content instantly.
-
-    </p>
-
-</section>
-
-
-
-<!-- SHARE CARD -->
-
-<section class="share-card">
-
-
-    <!-- TABS -->
-
-    <div class="tabs">
-
-        <button
-            class="tab active"
-            data-tab="file"
-            type="button"
-        >
-
-            <i class="fas fa-file-arrow-up"></i>
-
-            File
-
-        </button>
-
-
-        <button
-            class="tab"
-            data-tab="text"
-            type="button"
-        >
-
-            <i class="fas fa-pen"></i>
-
-            Text
-
-        </button>
-
-
-        <button
-            class="tab"
-            data-tab="image"
-            type="button"
-        >
-
-            <i class="fas fa-image"></i>
-
-            Image
-
-        </button>
-
-    </div>
-
-
-
-    <!-- FILE TAB -->
-
-    <div
-        class="tab-content active"
-        id="file-tab"
-    >
-
-        <form
-            action="{{ url_for('share') }}"
-            method="POST"
-            enctype="multipart/form-data"
-        >
-
-            <div
-                class="upload-zone"
-                id="file-zone"
-            >
-
-                <div class="upload-icon">
-
-                    <i class="fas fa-cloud-arrow-up"></i>
-
-                </div>
-
-
-                <h2>
-                    Upload your file
-                </h2>
-
+                <h2>How LekheeShare Works</h2>
 
                 <p>
-                    Drag & drop your file here or choose a file
+                    Share your content in just three simple steps.
                 </p>
-
-
-                <input
-                    type="file"
-                    id="file-input"
-                    name="file"
-                    hidden
-                    required
-                >
-
-
-                <button
-                    type="button"
-                    class="choose-btn"
-                    onclick="document.getElementById('file-input').click()"
-                >
-
-                    <i class="fas fa-folder-open"></i>
-
-                    Choose File
-
-                </button>
-
-
-                <div
-                    class="file-info"
-                    id="file-info"
-                >
-
-                    <i class="fas fa-file"></i>
-
-                    <span id="file-name"></span>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="generate-btn"
-                >
-
-                    <i class="fas fa-wand-magic-sparkles"></i>
-
-                    Upload & Generate Code
-
-                </button>
 
             </div>
 
-        </form>
 
-    </div>
+            <div class="feature-grid">
 
+                <!-- Feature 1 -->
 
+                <div class="feature">
 
-    <!-- TEXT TAB -->
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-arrow-up"></i>
+                    </div>
 
-    <div
-        class="tab-content"
-        id="text-tab"
-    >
+                    <h3>1. Upload</h3>
 
-        <form
-            action="{{ url_for('share_text') }}"
-            method="POST"
-        >
-
-            <textarea
-                name="text_content"
-                placeholder="Write or paste your text here..."
-                required
-            ></textarea>
-
-
-            <button
-                type="submit"
-                class="generate-btn"
-            >
-
-                <i class="fas fa-wand-magic-sparkles"></i>
-
-                Generate Share Code
-
-            </button>
-
-        </form>
-
-    </div>
-
-
-
-    <!-- IMAGE TAB -->
-
-    <div
-        class="tab-content"
-        id="image-tab"
-    >
-
-        <form
-            action="{{ url_for('share') }}"
-            method="POST"
-            enctype="multipart/form-data"
-        >
-
-            <div
-                class="upload-zone"
-                id="image-zone"
-            >
-
-                <div class="upload-icon">
-
-                    <i class="fas fa-image"></i>
+                    <p>
+                        Select a file, image or text that you want to share.
+                    </p>
 
                 </div>
 
 
-                <h2>
-                    Upload an image
-                </h2>
+                <!-- Feature 2 -->
 
+                <div class="feature">
 
-                <p>
-                    PNG, JPG, JPEG or GIF
-                </p>
+                    <div class="feature-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
 
+                    <h3>2. Get Your Code</h3>
 
-                <input
-                    type="file"
-                    id="image-input"
-                    name="file"
-                    accept=".png,.jpg,.jpeg,.gif"
-                    hidden
-                    required
-                >
-
-
-                <button
-                    type="button"
-                    class="choose-btn"
-                    onclick="document.getElementById('image-input').click()"
-                >
-
-                    <i class="fas fa-image"></i>
-
-                    Choose Image
-
-                </button>
-
-
-                <div
-                    class="file-info"
-                    id="image-info"
-                >
-
-                    <i class="fas fa-image"></i>
-
-                    <span id="image-name"></span>
+                    <p>
+                        LekheeShare creates a unique 6-character code
+                        for your content.
+                    </p>
 
                 </div>
 
 
-                <button
-                    type="submit"
-                    class="generate-btn"
-                >
+                <!-- Feature 3 -->
 
-                    <i class="fas fa-wand-magic-sparkles"></i>
+                <div class="feature">
 
-                    Upload & Generate Code
+                    <div class="feature-icon">
+                        <i class="fas fa-share-nodes"></i>
+                    </div>
 
-                </button>
+                    <h3>3. Share</h3>
+
+                    <p>
+                        Send the code to anyone who needs access
+                        to your shared content.
+                    </p>
+
+                </div>
 
             </div>
-
-        </form>
-
-    </div>
-
-</section>
-
-
-
-<!-- ACCESS -->
-
-<section class="access-box">
-
-    <div class="access-left">
-
-        <div class="access-icon">
-
-            <i class="fas fa-key"></i>
 
         </div>
 
+    </section>
 
-        <div>
 
-            <h3>
-                Already have a share code?
-            </h3>
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
-            <p>
-                Enter your 6-character code to access a shared file.
-            </p>
-
+    <footer>
+        <div class="container">
+            © 2026 LekheeShare — Simple & Fast File Sharing
         </div>
-
-    </div>
-
-
-    <a
-        href="{{ url_for('access_file') }}"
-        class="access-button"
-    >
-
-        Access File
-
-        <i class="fas fa-arrow-right"></i>
-
-    </a>
-
-</section>
+    </footer>
 
 
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-<!-- HOW IT WORKS -->
+    <script>
 
-<section class="how">
+        /* =========================
+           TAB SWITCHING
+        ========================= */
 
-    <div class="how-inner">
+        const tabs = document.querySelectorAll(".tab");
+        const tabContents = document.querySelectorAll(".tab-content");
 
-        <div class="section-heading">
+        tabs.forEach(tab => {
 
-            <h2>
-                How it works
-            </h2>
+            tab.addEventListener("click", () => {
 
-            <p>
-                Sharing files takes only a few seconds.
-            </p>
-
-        </div>
-
-
-        <div class="steps">
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    1
-                </div>
-
-                <h3>
-                    Upload
-                </h3>
-
-                <p>
-                    Select a file, image or enter text
-                    that you want to share.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    2
-                </div>
-
-                <h3>
-                    Get Your Code
-                </h3>
-
-                <p>
-                    LekheeShare automatically generates
-                    a unique 6-character code.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    3
-                </div>
-
-                <h3>
-                    Share
-                </h3>
-
-                <p>
-                    Give the code or link to someone
-                    and they can access your file.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<footer>
-
-    © 2026 LekheeShare · Simple file sharing
-
-</footer>
-
-
-
-<script>
-
-    /* =========================
-       TAB SWITCHING
-    ========================== */
-
-    const tabs =
-        document.querySelectorAll(".tab");
-
-    const contents =
-        document.querySelectorAll(".tab-content");
-
-
-    tabs.forEach(function(tab) {
-
-        tab.addEventListener(
-            "click",
-            function() {
-
-                const target =
-                    tab.dataset.tab;
-
-
-                tabs.forEach(function(item) {
-
+                tabs.forEach(item => {
                     item.classList.remove("active");
-
                 });
 
-
-                contents.forEach(function(content) {
-
+                tabContents.forEach(content => {
                     content.classList.remove("active");
-
                 });
-
 
                 tab.classList.add("active");
 
+                const tabName = tab.dataset.tab;
 
                 document
-                    .getElementById(target + "-tab")
+                    .getElementById(`${tabName}-tab`)
                     .classList.add("active");
 
-            }
-        );
-
-    });
-
-
-
-    /* =========================
-       FILE INPUT
-    ========================== */
-
-    const fileInput =
-        document.getElementById("file-input");
-
-    const fileInfo =
-        document.getElementById("file-info");
-
-    const fileName =
-        document.getElementById("file-name");
-
-
-    fileInput.addEventListener(
-        "change",
-        function() {
-
-            if (this.files.length > 0) {
-
-                fileName.textContent =
-                    this.files[0].name;
-
-                fileInfo.style.display =
-                    "block";
-
-            }
-
-        }
-    );
-
-
-
-    /* =========================
-       IMAGE INPUT
-    ========================== */
-
-    const imageInput =
-        document.getElementById("image-input");
-
-    const imageInfo =
-        document.getElementById("image-info");
-
-    const imageName =
-        document.getElementById("image-name");
-
-
-    imageInput.addEventListener(
-        "change",
-        function() {
-
-            if (this.files.length > 0) {
-
-                imageName.textContent =
-                    this.files[0].name;
-
-                imageInfo.style.display =
-                    "block";
-
-            }
-
-        }
-    );
-
-
-
-    /* =========================
-       DRAG & DROP
-    ========================== */
-
-    function setupDropZone(zoneId, inputId) {
-
-        const zone =
-            document.getElementById(zoneId);
-
-        const input =
-            document.getElementById(inputId);
-
-
-        zone.addEventListener(
-            "dragover",
-            function(event) {
-
-                event.preventDefault();
-
-                zone.classList.add("dragging");
-
-            }
-        );
-
-
-        zone.addEventListener(
-            "dragleave",
-            function() {
-
-                zone.classList.remove("dragging");
-
-            }
-        );
-
-
-        zone.addEventListener(
-            "drop",
-            function(event) {
-
-                event.preventDefault();
-
-                zone.classList.remove("dragging");
-
-
-                if (
-                    event.dataTransfer.files &&
-                    event.dataTransfer.files.length > 0
-                ) {
-
-                    input.files =
-                        event.dataTransfer.files;
-
-                    input.dispatchEvent(
-                        new Event("change")
-                    );
-
-                }
-
-            }
-        );
-
-    }
-
-
-    setupDropZone(
-        "file-zone",
-        "file-input"
-    );
-
-
-    setupDropZone(
-        "image-zone",
-        "image-input"
-    );
-
-</script>
-
-
-</body>
-
-</html>
-=======
-        }
-        
-        .logo i {
-            font-size: 28px;
-        }
-        
-        .logo h1 {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--light);
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 60px 0;
-        }
-        
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #636e72;
-        }
-        
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            width: 100%;
-            max-width: 380px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
-        
-        .card-header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .card-header i {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-        
-        .card-header h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        
-        .card-body {
-            padding: 25px;
-        }
-        
-        .card-body p {
-            color: #636e72;
-            margin-bottom: 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .features {
-            padding: 60px 0;
-            background: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: #636e72;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .feature-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .feature {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .feature i {
-            font-size: 48px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .feature h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .feature p {
-            color: #636e72;
-        }
-        
-        .upload-area {
-            border: 2px dashed var(--secondary);
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-            margin: 30px 0;
-            background: rgba(162, 155, 254, 0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .upload-area:hover {
-            background: rgba(162, 155, 254, 0.1);
-        }
-        
-        .upload-area i {
-            font-size: 52px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .upload-area h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .upload-area p {
-            color: #636e72;
-            margin-bottom: 20px;
-        }
-        
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 12px;
-            background: var(--success);
-            color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transform: translateX(100vw);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .access-section {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            margin: 30px 0;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        .access-section h3 {
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-        
-        .access-section p {
-            color: #636e72;
-            margin-bottom: 20px;
-        }
-
-        /* Tabs for different sharing options */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            gap: 10px;
-        }
-        
-        .tab {
-            padding: 12px 25px;
-            background: white;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .tab.active {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        textarea, input[type="text"] {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid var(--light);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        textarea:focus, input[type="text"]:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-        
-        textarea {
-            min-height: 200px;
-            resize: vertical;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .feature-grid {
-                flex-direction: column;
-            }
-            
-            .card {
-                max-width: 100%;
-            }
-            
-            .upload-area {
-                padding: 20px;
-            }
-        }
-
-    </style>
-    
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-91MV54EBJQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-91MV54EBJQ');
-</script>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-share-alt"></i>
-                    <h1>LekheeShare</h1>
-                </div>
-                <nav class="nav-links">
-                    <a href="/">Home</a>
-                    <a href="/access">Access File</a>
-                    <a href="/text">Share Text</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="hero">
-            <h2>Share Files, Text & Images Instantly</h2>
-            <p>LekheeShare allows you to quickly share files, text snippets, and images with anyone. Simple, fast, and completely free!</p>
-            
-            <div class="tabs">
-                <div class="tab active" data-tab="file">File Share</div>
-                <div class="tab" data-tab="text">Text Share</div>
-                <div class="tab" data-tab="image">Image Share</div>
-            </div>
-            
-            <div class="tab-content active" id="file-tab">
-                <form action="/share" method="POST" enctype="multipart/form-data">
-                    <div class="upload-area">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <h3>Upload Your File</h3>
-                        <p>Drag & drop your file here or click to browse</p>
-                        <input type="file" id="file-upload" name="file" style="display: none;" required>
-                        <button type="button" class="btn" onclick="document.getElementById('file-upload').click()">Select File</button>
-                        <div id="file-info" style="margin-top: 15px; display: none;">
-                            <p><strong>Selected file:</strong> <span id="file-name"></span></p>
-                            <button type="submit" class="btn btn-block">Upload & Share</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            
-            <div class="tab-content" id="text-tab">
-                <form action="/text" method="POST">
-                    <div class="upload-area">
-                        <i class="fas fa-font"></i>
-                        <h3>Share Text</h3>
-                        <p>Paste your text below and generate a shareable link</p>
-                        <textarea name="text_content" placeholder="Type or paste your text here..." required></textarea>
-                        <button type="submit" class="btn btn-block">Generate Link</button>
-                    </div>
-                </form>
-            </div>
-            
-            <div class="tab-content" id="image-tab">
-                <form action="/share" method="POST" enctype="multipart/form-data">
-                    <div class="upload-area">
-                        <i class="fas fa-image"></i>
-                        <h3>Upload Image</h3>
-                        <p>Drag & drop your image here or click to browse</p>
-                        <input type="file" id="image-upload" name="file" accept="image/*" style="display: none;" required>
-                        <button type="button" class="btn" onclick="document.getElementById('image-upload').click()">Select Image</button>
-                        <div id="image-info" style="margin-top: 15px; display: none;">
-                            <p><strong>Selected image:</strong> <span id="image-name"></span></p>
-                            <button type="submit" class="btn btn-block">Upload & Share</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Access File Section -->
-        <div class="access-section">
-            <i class="fas fa-key" style="font-size: 48px; color: var(--primary); margin-bottom: 20px;"></i>
-            <h3>Access Shared Files</h3>
-            <p>Have a share code? Enter it below to access the shared file</p>
-            <a href="/access" class="btn">
-                <i class="fas fa-unlock me-2"></i>Access File
-            </a>
-        </div>
-    </div>
-
-    <div class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>How It Works</h2>
-                <p>Sharing with LekheeShare is simple and straightforward</p>
-            </div>
-            
-            <div class="feature-grid">
-                <div class="feature">
-                    <i class="fas fa-upload"></i>
-                    <h3>1. Upload</h3>
-                    <p>Select your file, text, or image to share</p>
-                </div>
-                
-                <div class="feature">
-                    <i class="fas fa-link"></i>
-                    <h3>2. Get Code</h3>
-                    <p>We generate a unique 6-character code for your share</p>
-                </div>
-                
-                <div class="feature">
-                    <i class="fas fa-share-square"></i>
-                    <h3>3. Share</h3>
-                    <p>Share the code with anyone you want to access your file</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <script>
-        // Tab functionality
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
             });
+
         });
-        
-        // File upload
-        document.getElementById('file-upload').addEventListener('change', function(e) {
-            const file = e.target.files[0];
+
+
+        /* =========================
+           FILE SELECTION
+        ========================= */
+
+        const fileUpload = document.getElementById("file-upload");
+
+        fileUpload.addEventListener("change", function () {
+
+            const file = this.files[0];
+
             if (file) {
-                document.getElementById('file-name').textContent = file.name;
-                document.getElementById('file-info').style.display = 'block';
+
+                document.getElementById("file-name").textContent =
+                    file.name;
+
+                document.getElementById("file-info").style.display =
+                    "block";
             }
+
         });
-        
-        // Image upload
-        document.getElementById('image-upload').addEventListener('change', function(e) {
-            const file = e.target.files[0];
+
+
+        /* =========================
+           IMAGE SELECTION
+        ========================= */
+
+        const imageUpload = document.getElementById("image-upload");
+
+        imageUpload.addEventListener("change", function () {
+
+            const file = this.files[0];
+
             if (file) {
-                document.getElementById('image-name').textContent = file.name;
-                document.getElementById('image-info').style.display = 'block';
+
+                document.getElementById("image-name").textContent =
+                    file.name;
+
+                document.getElementById("image-info").style.display =
+                    "block";
             }
+
         });
-        
-        // Drag & drop
-        const uploadAreas = document.querySelectorAll('.upload-area');
+
+
+        /* =========================
+           DRAG & DROP
+        ========================= */
+
+        const uploadAreas =
+            document.querySelectorAll(".upload-area");
+
         uploadAreas.forEach(area => {
-            area.addEventListener('dragover', e => {
-                e.preventDefault();
-                area.style.background = 'rgba(162, 155, 254, 0.2)';
-                area.style.borderColor = 'var(--primary)';
+
+            area.addEventListener("dragover", event => {
+
+                event.preventDefault();
+
+                area.style.borderColor = "#1769aa";
+                area.style.background = "#f1f8ff";
+
             });
-            
-            area.addEventListener('dragleave', () => {
-                area.style.background = 'rgba(162, 155, 254, 0.05)';
-                area.style.borderColor = 'var(--secondary)';
+
+
+            area.addEventListener("dragleave", () => {
+
+                area.style.borderColor = "#b8c9da";
+                area.style.background = "#fbfdff";
+
             });
-            
-            area.addEventListener('drop', e => {
-                e.preventDefault();
-                area.style.background = 'rgba(162, 155, 254, 0.05)';
-                area.style.borderColor = 'var(--secondary)';
-                const files = e.dataTransfer.files;
-                if (files.length > 0) {
-                    const file = files[0];
-                    const fileInput = area.querySelector('input[type="file"]');
-                    fileInput.files = files;
-                    const event = new Event('change', { bubbles: true });
-                    fileInput.dispatchEvent(event);
+
+
+            area.addEventListener("drop", event => {
+
+                event.preventDefault();
+
+                area.style.borderColor = "#b8c9da";
+                area.style.background = "#fbfdff";
+
+                const files = event.dataTransfer.files;
+
+                if (files.length === 0) {
+                    return;
                 }
+
+                const input =
+                    area.querySelector('input[type="file"]');
+
+                if (!input) {
+                    return;
+                }
+
+                input.files = files;
+
+                input.dispatchEvent(
+                    new Event("change", {
+                        bubbles: true
+                    })
+                );
+
             });
+
         });
+
     </script>
+
 </body>
+
 </html>
->>>>>>> b7ba4ffd24021a83426d5741a4a7b62c0fa41bf6
+
