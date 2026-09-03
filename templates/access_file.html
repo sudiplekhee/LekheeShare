@@ -4,300 +4,302 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Access File - LekheeShare</title>
-
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+    <title>Access File | LekheeShare</title>
 
     <!-- Google Font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* ==============================
-           RESET
-        ============================== */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html,
         body {
-            width: 100%;
-            min-height: 100%;
+            font-family: "Inter", Arial, sans-serif;
+            min-height: 100vh;
+            background: #f5f8fc;
+            color: #102f50;
         }
 
-        body {
-            font-family: "Inter", sans-serif;
-            background: #f4f8fc;
-            color: #102a43;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* ==============================
-           COLOR VARIABLES
-        ============================== */
-
-        :root {
-            --dark-blue: #0b2a4a;
-            --dark-blue-2: #061c33;
-            --blue: #1769aa;
-            --light-blue: #eaf4ff;
-            --border: #d9e4ef;
-            --text: #102a43;
-            --muted: #718096;
-            --white: #ffffff;
-        }
-
-        /* ==============================
+        /* =========================================
            NAVBAR
-        ============================== */
+        ========================================= */
 
         .navbar {
-            width: 100%;
-            height: 72px;
-            background: var(--dark-blue);
+            height: 78px;
+            background: #0d3154;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 7%;
-            box-shadow: 0 3px 15px rgba(6, 28, 51, 0.15);
+            padding: 0 17%;
+            box-shadow: 0 5px 20px rgba(13, 49, 84, 0.16);
         }
 
-        .logo {
+        .brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-decoration: none;
             color: white;
-            font-size: 22px;
-            font-weight: 800;
         }
 
-        .logo-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            background: white;
-            color: var(--dark-blue);
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.13);
+            border-radius: 13px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+
+            font-size: 20px;
+        }
+
+        .brand-name {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 34px;
         }
 
         .nav-links a {
-            color: #dbeafe;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            color: #ffffff;
+            text-decoration: none;
+
             font-size: 14px;
-            font-weight: 600;
-            transition: 0.2s ease;
+            font-weight: 500;
+
+            padding: 10px 4px;
+
+            transition: 0.2s;
         }
 
         .nav-links a:hover {
-            color: white;
+            opacity: 0.75;
         }
 
-        .nav-links .active {
-            color: white;
+        .nav-links a.active {
+            font-weight: 700;
         }
 
-        /* ==============================
-           MAIN SECTION
-        ============================== */
+        /* =========================================
+           MAIN
+        ========================================= */
 
-        .access-page {
-            width: 100%;
-            min-height: calc(100vh - 72px);
-
+        .main {
+            min-height: calc(100vh - 78px);
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
 
-            padding: 50px 20px;
+            padding: 55px 20px 70px;
         }
 
-        /* ==============================
-           ACCESS CARD
-        ============================== */
-
-        .access-card {
+        .access-container {
             width: 100%;
-            max-width: 620px;
-
-            background: var(--white);
-
-            border: 1px solid #dce7f1;
-            border-radius: 24px;
-
-            padding: 48px 48px 42px;
-
-            box-shadow:
-                0 20px 50px rgba(11, 42, 74, 0.10);
-
+            max-width: 560px;
             text-align: center;
         }
 
-        /* ==============================
-           ICON
-        ============================== */
+        /* Top Badge */
 
-        .icon-box {
-            width: 84px;
-            height: 84px;
-
-            margin: 0 auto 28px;
-
-            border-radius: 22px;
-
-            background: var(--light-blue);
-
-            display: flex;
+        .badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
 
-            color: var(--blue);
+            background: #eaf4ff;
+            color: #1769aa;
 
-            font-size: 35px;
+            border-radius: 30px;
+
+            padding: 9px 16px;
+            margin-bottom: 20px;
+
+            font-size: 13px;
+            font-weight: 700;
         }
 
-        /* ==============================
-           TITLE
-        ============================== */
+        /* Heading */
 
-        .access-card h1 {
-            color: var(--dark-blue);
-
-            font-size: 32px;
+        .title {
+            font-size: 42px;
+            line-height: 1.15;
             font-weight: 800;
 
-            margin-bottom: 12px;
+            color: #102f50;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 14px;
         }
 
-        .subtitle {
-            max-width: 470px;
+        .title span {
+            color: #1976b9;
+        }
 
+        .description {
+            max-width: 500px;
             margin: 0 auto 34px;
 
-            color: var(--muted);
+            color: #667892;
 
             font-size: 15px;
             line-height: 1.7;
         }
 
-        /* ==============================
-           FLASH MESSAGE
-        ============================== */
+        /* =========================================
+           CARD
+        ========================================= */
 
-        .flash-message {
-            background: #fff4f4;
-            color: #c53030;
+        .card {
+            background: #ffffff;
 
-            border: 1px solid #fed7d7;
+            border: 1px solid #dce6f0;
+            border-radius: 20px;
 
-            border-radius: 10px;
+            padding: 34px;
 
-            padding: 12px 15px;
-
-            margin-bottom: 24px;
-
-            font-size: 14px;
-            text-align: left;
+            box-shadow:
+                0 15px 45px rgba(35, 65, 95, 0.09);
         }
 
-        /* ==============================
-           FORM
-        ============================== */
+        .card-header {
+            margin-bottom: 26px;
+        }
 
-        .access-form {
-            width: 100%;
+        .lock-icon {
+            width: 68px;
+            height: 68px;
+
+            margin: 0 auto 17px;
+
+            border-radius: 18px;
+
+            background: #eaf4ff;
+            color: #1976b9;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 27px;
+        }
+
+        .card-title {
+            color: #102f50;
+
+            font-size: 22px;
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+        .card-subtitle {
+            color: #7b8ba1;
+
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-group {
             text-align: left;
         }
 
         .form-label {
             display: block;
 
-            margin-bottom: 9px;
+            color: #344b66;
 
-            color: var(--dark-blue);
-
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
+
+            margin-bottom: 9px;
         }
 
         .code-input {
             width: 100%;
-            height: 72px;
+            height: 62px;
 
-            border: 2px solid #cbd8e5;
-            border-radius: 14px;
+            border: 2px solid #dce6f0;
+            border-radius: 13px;
+
+            background: #fbfdff;
+
+            color: #102f50;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            text-align: center;
+            letter-spacing: 8px;
 
             outline: none;
 
-            background: white;
+            text-transform: uppercase;
 
-            color: var(--dark-blue);
-
-            text-align: center;
-
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 6px;
-
-            transition: 0.2s ease;
+            transition: 0.2s;
         }
 
         .code-input::placeholder {
-            color: #a5b4c4;
-            letter-spacing: 5px;
+            color: #b8c4d2;
+            letter-spacing: 6px;
+            font-weight: 600;
         }
 
         .code-input:focus {
-            border-color: var(--blue);
+            border-color: #2684c5;
+
+            background: #ffffff;
 
             box-shadow:
-                0 0 0 4px rgba(23, 105, 170, 0.12);
+                0 0 0 4px rgba(38, 132, 197, 0.10);
         }
 
-        .input-help {
+        .input-hint {
             text-align: center;
 
-            margin-top: 10px;
-            margin-bottom: 24px;
+            margin-top: 9px;
 
-            color: #718096;
+            color: #94a3b8;
 
             font-size: 12px;
         }
 
-        /* ==============================
-           ACCESS BUTTON
-        ============================== */
+        /* Button */
 
-        .access-button {
+        .access-btn {
             width: 100%;
-            height: 58px;
+            height: 56px;
+
+            margin-top: 24px;
 
             border: none;
             border-radius: 12px;
 
-            background: var(--dark-blue);
-
+            background: #0d3154;
             color: white;
 
             font-family: inherit;
@@ -310,202 +312,164 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 9px;
 
-            transition: 0.25s ease;
+            transition: 0.25s;
         }
 
-        .access-button:hover {
-            background: var(--dark-blue-2);
+        .access-btn:hover {
+            background: #164875;
 
             transform: translateY(-1px);
 
             box-shadow:
-                0 8px 20px rgba(6, 28, 51, 0.20);
+                0 8px 20px rgba(13, 49, 84, 0.18);
         }
 
-        .access-button:active {
+        .access-btn:active {
             transform: translateY(0);
         }
 
-        /* ==============================
-           DIVIDER
-        ============================== */
+        /* =========================================
+           INFO BOX
+        ========================================= */
 
-        .divider {
-            display: flex;
-            align-items: center;
+        .info-box {
+            margin-top: 22px;
 
-            gap: 16px;
+            padding: 15px 16px;
 
-            margin: 32px 0;
-        }
+            background: #f7faff;
 
-        .divider-line {
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .divider-text {
-            color: #8a9aab;
-            font-size: 13px;
-        }
-
-        /* ==============================
-           BACK HOME
-        ============================== */
-
-        .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-
-            color: var(--blue);
-
-            font-size: 14px;
-            font-weight: 700;
-
-            transition: 0.2s ease;
-        }
-
-        .back-home:hover {
-            color: var(--dark-blue);
-        }
-
-        /* ==============================
-           SECURITY INFO
-        ============================== */
-
-        .security-info {
-            width: 100%;
-
-            margin-top: 30px;
-
-            padding: 14px 16px;
-
-            background: #f4f8fc;
-
+            border: 1px solid #e1eaf3;
             border-radius: 12px;
 
-            color: #63758a;
+            display: flex;
+            align-items: flex-start;
+
+            gap: 11px;
+
+            text-align: left;
+        }
+
+        .info-icon {
+            color: #1976b9;
+            font-size: 15px;
+
+            margin-top: 2px;
+        }
+
+        .info-text {
+            color: #718198;
 
             font-size: 12px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 9px;
+            line-height: 1.6;
         }
 
-        .security-info i {
-            color: var(--blue);
-            font-size: 14px;
+        /* =========================================
+           FLASH MESSAGE
+        ========================================= */
+
+        .flash-message {
+            margin-bottom: 18px;
+
+            padding: 13px 16px;
+
+            background: #fff1f1;
+            border: 1px solid #ffd4d4;
+
+            color: #c0392b;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            text-align: left;
         }
 
-        /* ==============================
+        /* =========================================
            FOOTER
-        ============================== */
+        ========================================= */
 
         .footer {
-            width: 100%;
-
             text-align: center;
 
             padding: 20px;
 
-            color: #8a9aab;
+            color: #91a0b2;
 
             font-size: 12px;
         }
 
-        /* ==============================
-           MOBILE
-        ============================== */
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
 
-        @media (max-width: 768px) {
-
+        @media (max-width: 1000px) {
             .navbar {
-                height: auto;
-
-                padding: 15px 20px;
-
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .access-page {
-                min-height: calc(100vh - 120px);
-
-                padding: 30px 15px;
-            }
-
-            .access-card {
-                max-width: 100%;
-
-                padding: 35px 24px 30px;
-
-                border-radius: 20px;
-            }
-
-            .icon-box {
-                width: 72px;
-                height: 72px;
-
-                margin-bottom: 22px;
-
-                font-size: 30px;
-            }
-
-            .access-card h1 {
-                font-size: 26px;
-            }
-
-            .subtitle {
-                font-size: 14px;
-            }
-
-            .code-input {
-                height: 64px;
-
-                font-size: 19px;
-                letter-spacing: 4px;
+                padding: 0 7%;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 700px) {
 
-            .logo {
-                font-size: 19px;
+            .navbar {
+                height: auto;
+                min-height: 72px;
+
+                padding: 12px 20px;
+
+                flex-direction: column;
+                gap: 10px;
             }
 
             .nav-links {
-                width: 100%;
-                justify-content: center;
-
-                gap: 15px;
+                gap: 17px;
             }
 
             .nav-links a {
                 font-size: 12px;
             }
 
-            .access-card {
-                padding: 30px 18px 25px;
+            .main {
+                padding: 45px 18px;
             }
 
-            .access-card h1 {
-                font-size: 24px;
+            .title {
+                font-size: 34px;
             }
 
-            .security-info {
+            .description {
+                font-size: 14px;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .brand-name {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
                 font-size: 11px;
+            }
+
+            .title {
+                font-size: 30px;
+            }
+
+            .code-input {
+                font-size: 21px;
+                letter-spacing: 6px;
             }
         }
     </style>
@@ -513,31 +477,39 @@
 
 <body>
 
-    <!-- ==============================
+    <!-- =========================================
          NAVBAR
-    ============================== -->
+    ========================================== -->
 
     <nav class="navbar">
 
-        <a href="{{ url_for('index') }}" class="logo">
-            <span class="logo-icon">
-                <i class="fas fa-share-nodes"></i>
-            </span>
+        <a href="{{ url_for('index') }}" class="brand">
 
-            LekheeShare
+            <div class="brand-icon">
+                <i class="fa-solid fa-share-nodes"></i>
+            </div>
+
+            <div class="brand-name">
+                LekheeShare
+            </div>
+
         </a>
+
 
         <div class="nav-links">
 
             <a href="{{ url_for('index') }}">
+                <i class="fa-solid fa-house"></i>
                 Home
             </a>
 
             <a href="{{ url_for('access_file') }}" class="active">
+                <i class="fa-solid fa-key"></i>
                 Access File
             </a>
 
             <a href="{{ url_for('share_text') }}">
+                <i class="fa-solid fa-font"></i>
                 Share Text
             </a>
 
@@ -546,30 +518,41 @@
     </nav>
 
 
-    <!-- ==============================
+    <!-- =========================================
          MAIN CONTENT
-    ============================== -->
+    ========================================== -->
 
-    <main class="access-page">
+    <main class="main">
 
-        <div class="access-card">
+        <div class="access-container">
 
-            <!-- Lock Icon -->
 
-            <div class="icon-box">
-                <i class="fas fa-unlock-alt"></i>
+            <!-- Badge -->
+
+            <div class="badge">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                Fast & Simple File Sharing
+
             </div>
 
 
             <!-- Heading -->
 
-            <h1>
-                Access Shared File
+            <h1 class="title">
+
+                Access Your
+                <span>Shared File</span>
+
             </h1>
 
-            <p class="subtitle">
-                Enter the 6-character share code to access your
-                shared file, image, or text.
+
+            <p class="description">
+
+                Enter the unique 6-character code provided by
+                the sender to access your shared file securely.
+
             </p>
 
 
@@ -582,8 +565,11 @@
                     {% for message in messages %}
 
                         <div class="flash-message">
-                            <i class="fas fa-circle-exclamation"></i>
+
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            &nbsp;
                             {{ message }}
+
                         </div>
 
                     {% endfor %}
@@ -593,87 +579,113 @@
             {% endwith %}
 
 
-            <!-- Access Form -->
+            <!-- Access Card -->
 
-            <form
-                method="POST"
-                action="{{ url_for('access_file') }}"
-                class="access-form"
-            >
-
-                <label
-                    for="shareCode"
-                    class="form-label"
-                >
-                    Enter Share Code
-                </label>
+            <div class="card">
 
 
-                <input
-                    type="text"
-                    id="shareCode"
-                    name="share_code"
-                    class="code-input"
-                    placeholder="ABC123"
-                    maxlength="6"
-                    minlength="6"
-                    pattern="[A-Za-z0-9]{6}"
-                    autocomplete="off"
-                    required
-                >
+                <div class="card-header">
+
+                    <div class="lock-icon">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                    </div>
 
 
-                <div class="input-help">
-                    6 characters • Letters and numbers only
+                    <h2 class="card-title">
+                        Enter Share Code
+                    </h2>
+
+
+                    <p class="card-subtitle">
+
+                        Use the 6-character code you received
+                        to open the shared content.
+
+                    </p>
+
                 </div>
 
 
-                <button
-                    type="submit"
-                    class="access-button"
-                >
-                    <i class="fas fa-unlock"></i>
-                    Access File
-                </button>
+                <!-- FORM -->
 
-            </form>
+                <form method="POST"
+                      action="{{ url_for('access_file') }}">
 
 
-            <!-- Divider -->
+                    <div class="form-group">
 
-            <div class="divider">
+                        <label
+                            for="share_code"
+                            class="form-label">
 
-                <div class="divider-line"></div>
+                            Share Code
 
-                <span class="divider-text">
-                    OR
-                </span>
-
-                <div class="divider-line"></div>
-
-            </div>
+                        </label>
 
 
-            <!-- Back Home -->
+                        <input
+                            type="text"
+                            id="share_code"
+                            name="share_code"
+                            class="code-input"
 
-            <a
-                href="{{ url_for('index') }}"
-                class="back-home"
-            >
-                <i class="fas fa-arrow-left"></i>
-                Back to Home
-            </a>
+                            placeholder="ABC123"
+
+                            maxlength="6"
+                            minlength="6"
+
+                            pattern="[A-Za-z0-9]{6}"
+
+                            autocomplete="off"
+
+                            required
+                        >
 
 
-            <!-- Security Information -->
+                        <p class="input-hint">
 
-            <div class="security-info">
+                            Enter exactly 6 letters or numbers
 
-                <i class="fas fa-shield-halved"></i>
+                        </p>
 
-                <span>
-                    Your share code is required to access shared content.
-                </span>
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="access-btn">
+
+                        <i class="fa-solid fa-unlock"></i>
+
+                        Access File
+
+                    </button>
+
+                </form>
+
+
+                <!-- INFO -->
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                    </div>
+
+
+                    <div class="info-text">
+
+                        The share code is provided by the
+                        person who shared the file with you.
+                        Keep your code private.
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -682,43 +694,33 @@
     </main>
 
 
-    <!-- ==============================
+    <!-- =========================================
          FOOTER
-    ============================== -->
+    ========================================== -->
 
     <footer class="footer">
-        © 2026 LekheeShare — Simple & Fast File Sharing
+
+        © 2026 LekheeShare · Simple, Fast & Secure File Sharing
+
     </footer>
 
 
-    <!-- ==============================
+    <!-- =========================================
          JAVASCRIPT
-    ============================== -->
+    ========================================== -->
 
     <script>
 
-        const shareCodeInput =
-            document.getElementById("shareCode");
+        const input =
+            document.getElementById("share_code");
 
 
-        /* Automatically convert to uppercase
-           and allow only letters/numbers */
-
-        shareCodeInput.addEventListener("input", function () {
+        input.addEventListener("input", function () {
 
             this.value = this.value
+                .replace(/[^a-zA-Z0-9]/g, "")
                 .toUpperCase()
-                .replace(/[^A-Z0-9]/g, "")
-                .substring(0, 6);
-
-        });
-
-
-        /* Focus input automatically */
-
-        window.addEventListener("load", function () {
-
-            shareCodeInput.focus();
+                .slice(0, 6);
 
         });
 

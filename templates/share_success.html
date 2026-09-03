@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Share Created — LekheeShare</title>
+    <title>Share Created | LekheeShare</title>
 
     <link
         rel="stylesheet"
@@ -18,222 +12,295 @@
     >
 
     <style>
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         :root {
-            --primary: #6c5ce7;
-            --primary-dark: #5144c7;
-            --purple-light: #a29bfe;
-            --text: #17172b;
-            --muted: #77778c;
-            --border: #e9e8f2;
-            --bg: #f7f7fc;
-            --success: #00b894;
+            --navy: #10385d;
+            --navy-dark: #0b2c4a;
+            --blue: #1976b9;
+            --blue-light: #e8f3fc;
+            --bg: #f4f8fc;
+            --text: #123454;
+            --muted: #70849a;
+            --border: #dce7f0;
+            --success: #18a673;
         }
 
         body {
             min-height: 100vh;
-
-            font-family:
-                "Segoe UI",
-                Arial,
-                sans-serif;
-
-            color: var(--text);
-
+            font-family: "Segoe UI", Arial, sans-serif;
             background:
                 radial-gradient(
-                    circle at 20% 10%,
-                    rgba(162,155,254,.25),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 90% 20%,
-                    rgba(108,92,231,.15),
+                    circle at 10% 10%,
+                    rgba(25,118,185,.08),
                     transparent 30%
                 ),
                 var(--bg);
+            color: var(--text);
         }
 
+        /* ================= NAVBAR ================= */
+
         .navbar {
-            height: 76px;
-
-            background: rgba(255,255,255,.9);
-
-            border-bottom: 1px solid var(--border);
-
-            display: flex;
-            align-items: center;
+            height: 78px;
+            background: var(--navy);
+            box-shadow: 0 5px 20px rgba(16,56,93,.15);
         }
 
         .nav-inner {
-            width: min(1050px,92%);
+            width: min(1180px, 92%);
+            height: 100%;
             margin: auto;
 
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
             text-decoration: none;
-            color: var(--text);
+            color: white;
 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 24px;
             font-weight: 800;
-            font-size: 20px;
         }
 
-        .logo i {
-            color: var(--primary);
-            margin-right: 8px;
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            background: rgba(255,255,255,.12);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 19px;
         }
 
-        .home-btn {
-            padding: 10px 16px;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-            border-radius: 10px;
-
-            background: #eeecff;
-            color: var(--primary);
-
+        .nav-links a {
+            color: white;
             text-decoration: none;
 
+            font-size: 15px;
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            opacity: .75;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            width: min(650px, 92%);
+            margin: 65px auto 80px;
+        }
+
+        .status {
+            width: fit-content;
+            margin: 0 auto 20px;
+
+            padding: 9px 16px;
+
+            border-radius: 30px;
+
+            background: var(--blue-light);
+            color: var(--blue);
+
+            font-size: 13px;
             font-weight: 700;
-            font-size: 14px;
         }
 
-        .wrapper {
-            width: min(650px,92%);
+        .page-title {
+            text-align: center;
 
-            margin: 70px auto;
+            font-size: 40px;
+            font-weight: 800;
+
+            color: var(--navy);
+
+            margin-bottom: 10px;
         }
+
+        .page-title span {
+            color: var(--blue);
+        }
+
+        .subtitle {
+            max-width: 550px;
+            margin: 0 auto 35px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ================= CARD ================= */
 
         .card {
             background: white;
 
             border: 1px solid var(--border);
 
-            border-radius: 24px;
+            border-radius: 22px;
 
-            padding: 45px;
-
-            text-align: center;
+            padding: 35px;
 
             box-shadow:
-                0 25px 70px rgba(36,32,75,.10);
+                0 15px 45px rgba(16,56,93,.09);
         }
 
-        .success-icon {
-            width: 82px;
-            height: 82px;
+        /* ================= FILE ICON ================= */
 
-            margin: auto auto 22px;
+        .file-icon {
+            width: 78px;
+            height: 78px;
 
-            border-radius: 50%;
+            margin: 0 auto 18px;
+
+            border-radius: 20px;
+
+            background: var(--blue-light);
+
+            color: var(--blue);
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            background: #e7faf5;
-
-            color: var(--success);
-
-            font-size: 35px;
+            font-size: 34px;
         }
 
-        h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
+        .file-name {
+            text-align: center;
+
+            font-size: 21px;
+            font-weight: 800;
+
+            color: var(--navy);
+
+            margin-bottom: 6px;
+
+            word-break: break-word;
         }
 
-        .description {
+        .file-status {
+            text-align: center;
+
             color: var(--muted);
-            margin-bottom: 30px;
+
+            font-size: 14px;
+
+            margin-bottom: 28px;
         }
+
+        /* ================= CODE BOX ================= */
 
         .code-box {
-            padding: 28px;
+            padding: 24px;
 
-            border-radius: 18px;
+            background: #f7fbff;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #f2f0ff,
-                    #faf9ff
-                );
+            border: 1px dashed #a9cbe5;
 
-            border: 2px dashed #cfc9ff;
+            border-radius: 16px;
+
+            text-align: center;
         }
 
         .code-label {
+            font-size: 12px;
+
             color: var(--muted);
 
-            font-size: 13px;
             font-weight: 700;
 
             text-transform: uppercase;
 
             letter-spacing: 1px;
 
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .code {
-            color: var(--primary);
-
-            font-size: 46px;
-
             font-family: monospace;
+
+            font-size: 38px;
 
             font-weight: 900;
 
-            letter-spacing: 9px;
+            letter-spacing: 8px;
+
+            color: var(--blue);
+
+            margin-bottom: 15px;
         }
 
         .copy-code {
             width: 100%;
 
-            margin-top: 15px;
-
-            padding: 14px;
+            height: 48px;
 
             border: none;
 
-            border-radius: 12px;
+            border-radius: 10px;
 
-            background: var(--primary);
+            background: var(--navy);
+
             color: white;
 
-            font-size: 15px;
+            font-size: 14px;
+
             font-weight: 700;
 
             cursor: pointer;
+
+            transition: .2s;
         }
 
         .copy-code:hover {
-            background: var(--primary-dark);
+            background: var(--navy-dark);
+            transform: translateY(-1px);
         }
+
+        /* ================= LINK ================= */
 
         .link-area {
-            margin-top: 28px;
-
-            text-align: left;
+            margin-top: 25px;
         }
 
-        .link-area label {
+        .link-label {
             display: block;
 
-            margin-bottom: 8px;
-
             font-size: 13px;
+
             font-weight: 700;
+
+            color: var(--navy);
+
+            margin-bottom: 8px;
         }
 
         .link-row {
@@ -245,7 +312,9 @@
 
             min-width: 0;
 
-            padding: 13px;
+            height: 48px;
+
+            padding: 0 14px;
 
             border: 1px solid var(--border);
 
@@ -253,288 +322,449 @@
 
             outline: none;
 
+            background: #f9fbfd;
+
             color: var(--muted);
 
-            background: #fafafd;
+            font-size: 13px;
         }
 
         .copy-link {
-            width: 50px;
+            width: 52px;
 
             border: none;
 
             border-radius: 0 10px 10px 0;
 
-            background: var(--text);
+            background: var(--blue);
+
             color: white;
 
             cursor: pointer;
+
+            font-size: 16px;
         }
+
+        .copy-link:hover {
+            background: #14669e;
+        }
+
+        /* ================= DOWNLOAD BUTTON ================= */
+
+        .download-btn {
+            width: 100%;
+
+            height: 56px;
+
+            margin-top: 25px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: var(--navy);
+
+            color: white;
+
+            text-decoration: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            transition: .2s;
+        }
+
+        .download-btn:hover {
+            background: var(--navy-dark);
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 20px rgba(16,56,93,.18);
+        }
+
+        /* ================= OTHER BUTTONS ================= */
 
         .buttons {
             display: grid;
 
-            gap: 10px;
+            grid-template-columns: 1fr 1fr;
 
-            margin-top: 28px;
+            gap: 12px;
+
+            margin-top: 14px;
         }
 
-        .btn {
-            padding: 14px;
+        .secondary-btn {
+            height: 48px;
 
-            border-radius: 12px;
+            border: 1px solid var(--border);
+
+            border-radius: 11px;
+
+            background: white;
+
+            color: var(--navy);
 
             text-decoration: none;
 
-            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
 
             font-size: 14px;
+
+            font-weight: 700;
+
+            transition: .2s;
         }
 
-        .access {
-            background: var(--primary);
-            color: white;
+        .secondary-btn:hover {
+            background: #f5f9fd;
+
+            border-color: #bfd6e7;
         }
 
-        .access:hover {
-            background: var(--primary-dark);
+        /* ================= FOOTER ================= */
+
+        .footer {
+            text-align: center;
+
+            padding: 25px;
+
+            color: #8a9bad;
+
+            font-size: 13px;
         }
 
-        .home {
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
+        /* ================= MOBILE ================= */
 
-        .home:hover {
-            background: #f7f7fc;
-        }
+        @media (max-width: 650px) {
 
-        @media(max-width:600px) {
+            .navbar {
+                height: auto;
+                padding: 15px 0;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 18px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .page-title {
+                font-size: 30px;
+            }
+
+            .main {
+                margin-top: 40px;
+            }
 
             .card {
-                padding: 30px 20px;
+                padding: 25px 18px;
             }
 
             .code {
-                font-size: 34px;
+                font-size: 30px;
                 letter-spacing: 5px;
             }
 
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .link-row input {
+                font-size: 11px;
+            }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
+    <!-- ================= NAVBAR ================= -->
 
-<nav class="navbar">
+    <nav class="navbar">
 
-    <div class="nav-inner">
+        <div class="nav-inner">
 
-        <a href="/" class="logo">
+            <a href="{{ url_for('index') }}" class="logo">
 
-            <i class="fas fa-share-nodes"></i>
+                <span class="logo-icon">
+                    <i class="fas fa-share-nodes"></i>
+                </span>
 
-            LekheeShare
+                LekheeShare
 
-        </a>
+            </a>
 
+            <div class="nav-links">
 
-        <a href="/" class="home-btn">
+                <a href="{{ url_for('index') }}">
+                    Home
+                </a>
 
-            <i class="fas fa-house"></i>
+                <a href="{{ url_for('access_file') }}">
+                    Access File
+                </a>
 
-            Home
+                <a href="{{ url_for('share_text') }}">
+                    Share Text
+                </a>
 
-        </a>
-
-    </div>
-
-</nav>
-
-
-
-<div class="wrapper">
-
-    <div class="card">
-
-
-        <div class="success-icon">
-
-            <i class="fas fa-check"></i>
+            </div>
 
         </div>
 
+    </nav>
 
-        <h1>
-            Your share is ready!
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <div class="status">
+            <i class="fas fa-circle-check"></i>
+            &nbsp; File Ready
+        </div>
+
+
+        <h1 class="page-title">
+            Your <span>Share</span> is Ready
         </h1>
 
 
-        <p class="description">
-
+        <p class="subtitle">
             Your file has been uploaded successfully.
-            Use the code below to access it.
-
+            Use the share code below to access your file.
         </p>
 
 
+        <div class="card">
 
-        <!-- CODE -->
+            <!-- FILE ICON -->
 
-        <div class="code-box">
+            <div class="file-icon">
 
-            <div class="code-label">
+                {% if file_type == 'image' %}
+                    <i class="fas fa-image"></i>
 
-                Your Share Code
+                {% elif file_type == 'text' %}
+                    <i class="fas fa-file-lines"></i>
 
-            </div>
-
-
-            <div
-                class="code"
-                id="shareCode"
-            >
-
-                {{ share_code }}
+                {% else %}
+                    <i class="fas fa-file"></i>
+                {% endif %}
 
             </div>
 
 
-            <button
-                class="copy-code"
-                onclick="copyCode()"
-            >
+            <!-- FILE NAME -->
 
-                <i class="fas fa-copy"></i>
+            <div class="file-name">
 
-                Copy Share Code
+                {% if original_name %}
+                    {{ original_name }}
+                {% elif filename %}
+                    {{ filename }}
+                {% else %}
+                    Shared File
+                {% endif %}
 
-            </button>
-
-        </div>
-
-
-
-        <!-- LINK -->
-
-        <div class="link-area">
-
-            <label>
-                Share Link
-            </label>
+            </div>
 
 
-            <div class="link-row">
+            <div class="file-status">
+                Ready to download
+            </div>
 
-                <input
-                    type="text"
-                    id="shareUrl"
-                    value="{{ share_url }}"
-                    readonly
+
+            <!-- SHARE CODE -->
+
+            <div class="code-box">
+
+                <div class="code-label">
+                    Your Share Code
+                </div>
+
+                <div
+                    class="code"
+                    id="shareCode"
                 >
-
+                    {{ share_code }}
+                </div>
 
                 <button
-                    class="copy-link"
-                    onclick="copyLink()"
-                    title="Copy link"
+                    class="copy-code"
+                    onclick="copyCode()"
                 >
 
                     <i class="fas fa-copy"></i>
+
+                    Copy Share Code
 
                 </button>
 
             </div>
 
-        </div>
+
+            <!-- SHARE LINK -->
+
+            <div class="link-area">
+
+                <label class="link-label">
+                    Share Link
+                </label>
+
+                <div class="link-row">
+
+                    <input
+                        type="text"
+                        id="shareUrl"
+                        value="{{ share_url }}"
+                        readonly
+                    >
+
+                    <button
+                        class="copy-link"
+                        onclick="copyLink()"
+                        title="Copy Share Link"
+                    >
+
+                        <i class="fas fa-copy"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
 
 
+            <!-- DOWNLOAD -->
 
-        <!-- BUTTONS -->
-
-        <div class="buttons">
+            {% if filename %}
 
             <a
-                href="{{ url_for('access_file') }}"
-                class="btn access"
+                href="{{ url_for('download_file', filename=filename) }}"
+                class="download-btn"
             >
 
-                <i class="fas fa-key"></i>
+                <i class="fas fa-download"></i>
 
-                Access File Using Code
+                Download File
 
             </a>
 
+            {% endif %}
 
-            <a
-                href="/"
-                class="btn home"
-            >
 
-                <i class="fas fa-plus"></i>
+            <!-- OTHER BUTTONS -->
 
-                Share Another File
+            <div class="buttons">
 
-            </a>
+                <a
+                    href="{{ url_for('access_file') }}"
+                    class="secondary-btn"
+                >
+
+                    <i class="fas fa-key"></i>
+
+                    Access Another
+
+                </a>
+
+
+                <a
+                    href="{{ url_for('index') }}"
+                    class="secondary-btn"
+                >
+
+                    <i class="fas fa-plus"></i>
+
+                    Share Another
+
+                </a>
+
+            </div>
 
         </div>
 
-
-    </div>
-
-</div>
+    </main>
 
 
+    <!-- ================= FOOTER ================= -->
 
-<script>
+    <footer class="footer">
 
-    function copyCode() {
+        © 2026 LekheeShare · Simple & Secure File Sharing
 
-        const code =
-            document
-                .getElementById("shareCode")
-                .innerText
-                .trim();
+    </footer>
 
 
-        navigator.clipboard.writeText(code)
-            .then(function() {
+    <!-- ================= JAVASCRIPT ================= -->
 
-                alert(
-                    "Code copied: " + code
-                );
+    <script>
 
-            });
+        function copyCode() {
 
-    }
+            const code =
+                document
+                    .getElementById("shareCode")
+                    .innerText
+                    .trim();
+
+            navigator.clipboard.writeText(code)
+                .then(function () {
+
+                    alert("Share code copied: " + code);
+
+                })
+                .catch(function () {
+
+                    alert("Unable to copy code.");
+
+                });
+
+        }
 
 
-    function copyLink() {
+        function copyLink() {
 
-        const link =
-            document
-                .getElementById("shareUrl")
-                .value;
+            const link =
+                document
+                    .getElementById("shareUrl")
+                    .value;
 
+            navigator.clipboard.writeText(link)
+                .then(function () {
 
-        navigator.clipboard.writeText(link)
-            .then(function() {
+                    alert("Share link copied!");
 
-                alert(
-                    "Share link copied!"
-                );
+                })
+                .catch(function () {
 
-            });
+                    alert("Unable to copy link.");
 
-    }
+                });
 
-</script>
+        }
 
+    </script>
 
 </body>
-
 </html>

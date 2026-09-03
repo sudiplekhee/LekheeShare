@@ -1,596 +1,412 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Share Text - LekheeShare</title>
-
-<!-- Font Awesome -->
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
->
-
-<!-- Google Font -->
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
->
-
-<style>
-    /* ==============================
-       RESET
-    ============================== */
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html,
-    body {
-        width: 100%;
-        min-height: 100%;
-    }
-
-    body {
-        font-family: "Inter", sans-serif;
-        background: #f4f8fc;
-        color: #102a43;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    /* ==============================
-       COLORS
-    ============================== */
-
-    :root {
-        --dark-blue: #0b2a4a;
-        --dark-blue-2: #061c33;
-        --blue: #1769aa;
-        --light-blue: #eaf4ff;
-        --border: #d9e4ef;
-        --text: #102a43;
-        --muted: #718096;
-        --white: #ffffff;
-    }
-
-    /* ==============================
-       NAVBAR
-    ============================== */
-
-    .navbar {
-        width: 100%;
-        height: 72px;
-
-        background: var(--dark-blue);
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        padding: 0 7%;
-
-        box-shadow: 0 3px 15px rgba(6, 28, 51, 0.15);
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        color: white;
-
-        font-size: 22px;
-        font-weight: 800;
-    }
-
-    .logo-icon {
-        width: 38px;
-        height: 38px;
-
-        border-radius: 10px;
-
-        background: white;
-        color: var(--dark-blue);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 18px;
-    }
-
-    .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .nav-links a {
-        color: #dbeafe;
-
-        font-size: 14px;
-        font-weight: 600;
-
-        transition: 0.2s ease;
-    }
-
-    .nav-links a:hover {
-        color: white;
-    }
-
-    .nav-links .active {
-        color: white;
-    }
-
-    /* ==============================
-       MAIN SECTION
-    ============================== */
-
-    .share-page {
-        width: 100%;
-        min-height: calc(100vh - 72px);
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding: 50px 20px;
-    }
-
-    /* ==============================
-       SHARE CARD
-    ============================== */
-
-    .share-card {
-        width: 100%;
-        max-width: 760px;
-
-        background: white;
-
-        border: 1px solid #dce7f1;
-
-        border-radius: 24px;
-
-        padding: 45px 50px;
-
-        box-shadow:
-            0 20px 50px rgba(11, 42, 74, 0.10);
-    }
-
-    /* ==============================
-       TOP ICON
-    ============================== */
-
-    .icon-box {
-        width: 82px;
-        height: 82px;
-
-        margin: 0 auto 25px;
-
-        border-radius: 22px;
-
-        background: var(--light-blue);
-
-        color: var(--blue);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 34px;
-    }
-
-    /* ==============================
-       TITLE
-    ============================== */
-
-    .share-card h1 {
-        text-align: center;
-
-        color: var(--dark-blue);
-
-        font-size: 32px;
-        font-weight: 800;
-
-        margin-bottom: 12px;
-    }
-
-    .subtitle {
-        text-align: center;
-
-        max-width: 570px;
-
-        margin: 0 auto 35px;
-
-        color: var(--muted);
-
-        font-size: 15px;
-
-        line-height: 1.7;
-    }
-
-    /* ==============================
-       FORM
-    ============================== */
-
-    .share-form {
-        width: 100%;
-    }
-
-    .form-label {
-        display: block;
-
-        margin-bottom: 10px;
-
-        color: var(--dark-blue);
-
-        font-size: 14px;
-        font-weight: 700;
-    }
-
-    /* ==============================
-       TEXTAREA
-    ============================== */
-
-    .text-area {
-        width: 100%;
-
-        min-height: 330px;
-
-        padding: 18px;
-
-        border: 2px solid #d5e0eb;
-
-        border-radius: 14px;
-
-        background: #ffffff;
-
-        color: var(--text);
-
-        font-family: "Inter", sans-serif;
-
-        font-size: 15px;
-
-        line-height: 1.7;
-
-        resize: vertical;
-
-        outline: none;
-
-        transition: 0.2s ease;
-    }
-
-    .text-area::placeholder {
-        color: #a0aec0;
-    }
-
-    .text-area:focus {
-        border-color: var(--blue);
-
-        box-shadow:
-            0 0 0 4px rgba(23, 105, 170, 0.12);
-    }
-
-    /* ==============================
-       CHARACTER INFO
-    ============================== */
-
-    .text-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        margin-top: 9px;
-        margin-bottom: 22px;
-
-        color: #718096;
-
-        font-size: 12px;
-    }
-
-    /* ==============================
-       SHARE BUTTON
-    ============================== */
-
-    .share-button {
-        width: 100%;
-        height: 58px;
-
-        border: none;
-
-        border-radius: 12px;
-
-        background: var(--dark-blue);
-
-        color: white;
-
-        font-family: inherit;
-
-        font-size: 15px;
-        font-weight: 700;
-
-        cursor: pointer;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        gap: 10px;
-
-        transition: 0.25s ease;
-    }
-
-    .share-button:hover {
-        background: var(--dark-blue-2);
-
-        transform: translateY(-1px);
-
-        box-shadow:
-            0 8px 20px rgba(6, 28, 51, 0.20);
-    }
-
-    .share-button:active {
-        transform: translateY(0);
-    }
-
-    /* ==============================
-       BACK / ACCESS LINKS
-    ============================== */
-
-    .bottom-links {
-        display: flex;
-
-        justify-content: center;
-
-        align-items: center;
-
-        gap: 25px;
-
-        margin-top: 28px;
-    }
-
-    .bottom-link {
-        display: inline-flex;
-
-        align-items: center;
-
-        gap: 8px;
-
-        color: var(--blue);
-
-        font-size: 14px;
-
-        font-weight: 700;
-
-        transition: 0.2s ease;
-    }
-
-    .bottom-link:hover {
-        color: var(--dark-blue);
-    }
-
-    .link-divider {
-        width: 1px;
-        height: 18px;
-
-        background: var(--border);
-    }
-
-    /* ==============================
-       INFO BOX
-    ============================== */
-
-    .info-box {
-        margin-top: 30px;
-
-        padding: 15px 18px;
-
-        border-radius: 12px;
-
-        background: #f4f8fc;
-
-        color: #63758a;
-
-        font-size: 12px;
-
-        line-height: 1.6;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 9px;
-
-        text-align: center;
-    }
-
-    .info-box i {
-        color: var(--blue);
-
-        font-size: 14px;
-    }
-
-    /* ==============================
-       FOOTER
-    ============================== */
-
-    .footer {
-        width: 100%;
-
-        text-align: center;
-
-        padding: 20px;
-
-        color: #8a9aab;
-
-        font-size: 12px;
-    }
-
-    /* ==============================
-       MOBILE
-    ============================== */
-
-    @media (max-width: 768px) {
+    <title>Shared Text | LekheeShare</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #10385d;
+            --navy-dark: #0b2d4d;
+            --blue: #1678bd;
+            --blue-light: #eaf5ff;
+            --bg: #f4f8fc;
+            --text: #173653;
+            --muted: #71859a;
+            --border: #dce7f1;
+            --white: #ffffff;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        /* ================= NAVBAR ================= */
 
         .navbar {
-            height: auto;
+            height: 78px;
+            background: var(--navy);
 
-            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            flex-direction: column;
+            padding: 0 16%;
 
-            gap: 15px;
+            box-shadow: 0 4px 18px rgba(10, 40, 70, 0.12);
         }
-
-        .nav-links {
-            gap: 20px;
-        }
-
-        .share-page {
-            min-height: calc(100vh - 120px);
-
-            padding: 30px 15px;
-        }
-
-        .share-card {
-            max-width: 100%;
-
-            padding: 35px 25px;
-
-            border-radius: 20px;
-        }
-
-        .icon-box {
-            width: 72px;
-            height: 72px;
-
-            font-size: 30px;
-
-            margin-bottom: 20px;
-        }
-
-        .share-card h1 {
-            font-size: 27px;
-        }
-
-        .subtitle {
-            font-size: 14px;
-        }
-
-        .text-area {
-            min-height: 280px;
-
-            font-size: 14px;
-        }
-    }
-
-    /* ==============================
-       SMALL MOBILE
-    ============================== */
-
-    @media (max-width: 480px) {
 
         .logo {
-            font-size: 19px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .logo i {
+            font-size: 22px;
         }
 
         .nav-links {
-            width: 100%;
-
-            justify-content: center;
-
-            gap: 15px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #9ed4ff;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            min-height: calc(100vh - 78px);
+
+            padding: 70px 20px;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        /* ================= HEADER ================= */
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 8px 16px;
+
+            background: var(--blue-light);
+            color: var(--blue);
+
+            border-radius: 30px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        .status i {
             font-size: 12px;
         }
 
-        .share-card {
-            padding: 30px 18px;
+        .header h1 {
+            font-size: 40px;
+            font-weight: 800;
+
+            color: var(--navy);
+
+            margin-bottom: 10px;
         }
 
-        .share-card h1 {
+        .header h1 span {
+            color: var(--blue);
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* ================= CARD ================= */
+
+        .card {
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: 22px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 18px 45px rgba(20, 60, 90, 0.08);
+        }
+
+        /* ================= FILE HEADER ================= */
+
+        .file-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            padding-bottom: 22px;
+
+            border-bottom: 1px solid var(--border);
+
+            margin-bottom: 22px;
+        }
+
+        .file-icon {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 14px;
+
+            background: var(--blue-light);
+            color: var(--blue);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             font-size: 24px;
         }
 
-        .bottom-links {
-            gap: 15px;
+        .file-details {
+            min-width: 0;
         }
 
-        .bottom-link {
+        .file-details h2 {
+            font-size: 17px;
+            font-weight: 750;
+
+            color: var(--navy);
+
+            word-break: break-word;
+        }
+
+        .file-details p {
+            margin-top: 4px;
+
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* ================= TEXT CONTENT ================= */
+
+        .content-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+        }
+
+        .content-label span {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .text-box {
+            background: #f8fbfe;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 22px;
+
+            min-height: 300px;
+            max-height: 500px;
+
+            overflow-y: auto;
+
+            white-space: pre-wrap;
+            word-break: break-word;
+
+            line-height: 1.75;
+
+            font-size: 15px;
+
+            color: #304b63;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+
+            margin-top: 22px;
+        }
+
+        .btn {
+            flex: 1;
+
+            height: 54px;
+
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .download {
+            background: var(--navy);
+            color: white;
+        }
+
+        .download:hover {
+            background: var(--navy-dark);
+            transform: translateY(-1px);
+        }
+
+        .back {
+            background: #edf3f8;
+            color: var(--navy);
+        }
+
+        .back:hover {
+            background: #e1ebf3;
+            transform: translateY(-1px);
+        }
+
+        /* ================= FOOTER INFO ================= */
+
+        .info {
+            margin-top: 18px;
+
+            text-align: center;
+
+            color: var(--muted);
+
             font-size: 12px;
         }
 
-        .info-box {
-            font-size: 11px;
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .main {
+                padding: 45px 15px;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .text-box {
+                min-height: 250px;
+            }
         }
-    }
-</style>
 
-<!-- Google Analytics -->
-<script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-91MV54EBJQ">
-</script>
+        @media (max-width: 480px) {
 
-<script>
-    window.dataLayer = window.dataLayer || [];
+            .logo {
+                font-size: 19px;
+            }
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
+            .nav-links {
+                gap: 10px;
+            }
 
-    gtag('js', new Date());
+            .nav-links a:nth-child(3) {
+                display: none;
+            }
 
-    gtag('config', 'G-91MV54EBJQ');
-</script>
-```
+            .header h1 {
+                font-size: 27px;
+            }
+
+            .file-header {
+                align-items: flex-start;
+            }
+        }
+    </style>
 
 </head>
 
+
 <body>
 
-```
-<!-- ==============================
-     NAVBAR
-============================== -->
+
+<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar">
 
-    <a href="/" class="logo">
-
-        <span class="logo-icon">
-            <i class="fas fa-share-nodes"></i>
-        </span>
-
+    <a
+        href="{{ url_for('index') }}"
+        class="logo"
+    >
+        <i class="fas fa-link"></i>
         LekheeShare
-
     </a>
 
 
     <div class="nav-links">
 
-        <a href="/">
+        <a href="{{ url_for('index') }}">
             Home
         </a>
 
-        <a href="/access">
+        <a href="{{ url_for('access_file') }}">
             Access File
         </a>
 
-        <a href="/text" class="active">
+        <a href="{{ url_for('share_text') }}">
             Share Text
         </a>
 
@@ -599,126 +415,110 @@
 </nav>
 
 
-<!-- ==============================
-     MAIN CONTENT
-============================== -->
+<!-- ================= MAIN ================= -->
 
-<main class="share-page">
+<main class="main">
 
-    <div class="share-card">
+    <div class="container">
 
-        <!-- Icon -->
 
-        <div class="icon-box">
-            <i class="fas fa-align-left"></i>
+        <!-- HEADER -->
+
+        <div class="header">
+
+            <div class="status">
+                <i class="fas fa-check-circle"></i>
+                Text Ready
+            </div>
+
+            <h1>
+                Your <span>Text</span> is Ready
+            </h1>
+
+            <p class="subtitle">
+                Your shared text has been found successfully.
+            </p>
+
         </div>
 
 
-        <!-- Heading -->
+        <!-- CARD -->
 
-        <h1>
-            Share Text
-        </h1>
+        <div class="card">
 
 
-        <p class="subtitle">
-            Enter your text below and create a unique
-            share code that you can share with anyone.
-        </p>
+            <!-- FILE INFORMATION -->
+
+            <div class="file-header">
+
+                <div class="file-icon">
+                    <i class="fas fa-file-lines"></i>
+                </div>
 
 
-        <!-- Form -->
+                <div class="file-details">
 
-        <form
-            action="/text"
-            method="POST"
-            class="share-form"
-        >
+                    <h2>
+                        {{ filename }}
+                    </h2>
 
-            <label
-                for="textContent"
-                class="form-label"
-            >
-                Your Text
-            </label>
+                    <p>
+                        Shared text • Ready to view and download
+                    </p>
 
+                </div>
 
-            <textarea
-                id="textContent"
-                name="text_content"
-                class="text-area"
-                placeholder="Type or paste your text here..."
-                required
-            ></textarea>
+            </div>
 
 
-            <div class="text-info">
+            <!-- TEXT -->
+
+            <div class="content-label">
 
                 <span>
-                    <i class="fas fa-keyboard"></i>
-                    Enter your content
-                </span>
-
-                <span id="characterCount">
-                    0 characters
+                    Shared Content
                 </span>
 
             </div>
 
 
-            <!-- Submit Button -->
-
-            <button
-                type="submit"
-                class="share-button"
-            >
-
-                <i class="fas fa-share-nodes"></i>
-
-                Share Text
-
-            </button>
-
-        </form>
+            <div class="text-box">
+                {{ content }}
+            </div>
 
 
-        <!-- Bottom Links -->
+            <!-- BUTTONS -->
 
-        <div class="bottom-links">
+            <div class="buttons">
 
-            <a
-                href="/"
-                class="bottom-link"
-            >
-                <i class="fas fa-arrow-left"></i>
-                Back to Home
-            </a>
-
-
-            <span class="link-divider"></span>
+                <a
+                    href="{{ url_for('download_file', filename=filename) }}"
+                    class="btn download"
+                >
+                    <i class="fas fa-download"></i>
+                    Download Text
+                </a>
 
 
-            <a
-                href="/access"
-                class="bottom-link"
-            >
-                <i class="fas fa-unlock"></i>
-                Access File
-            </a>
+                <a
+                    href="{{ url_for('access_file') }}"
+                    class="btn back"
+                >
+                    <i class="fas fa-key"></i>
+                    Access Another
+                </a>
 
-        </div>
+            </div>
 
 
-        <!-- Info -->
+            <div class="info">
 
-        <div class="info-box">
+                <i class="fas fa-shield-halved"></i>
 
-            <i class="fas fa-shield-halved"></i>
+                Your shared content is available through LekheeShare.
 
-            <span>
-                Your text will be stored securely and
-                can be accessed using its unique share code.
-            </span>
+            </div>
+
 
         </div>
 
@@ -726,51 +526,6 @@
 
 </main>
 
-
-<!-- ==============================
-     FOOTER
-============================== -->
-
-<footer class="footer">
-
-    © 2026 LekheeShare — Simple & Fast File Sharing
-
-</footer>
-
-
-<!-- ==============================
-     JAVASCRIPT
-============================== -->
-
-<script>
-
-    const textArea =
-        document.getElementById("textContent");
-
-    const characterCount =
-        document.getElementById("characterCount");
-
-
-    function updateCharacterCount() {
-
-        const count = textArea.value.length;
-
-        characterCount.textContent =
-            count + (count === 1 ? " character" : " characters");
-
-    }
-
-
-    textArea.addEventListener(
-        "input",
-        updateCharacterCount
-    );
-
-
-    updateCharacterCount();
-
-</script>
-```
 
 </body>
 </html>
